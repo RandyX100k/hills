@@ -11,8 +11,9 @@ actualiza el costo, el precio de venta y se ajusta la existencia a la cantidad
 del Excel; si estaba configurado como Servicio se corrige a Bienes para poder
 llevar inventario. Si no existe se crea como Bienes con inventario rastreado y
 se carga la existencia inicial. Permite elegir un impuesto (ITBIS) que se
-aplica igual a compras y ventas, y deja la política de facturación siempre en
-"Cantidades ordenadas".
+aplica igual a compras y ventas, deja la política de facturación siempre en
+"Cantidades ordenadas", y marca todos los productos como disponibles en el
+Punto de Venta.
     """,
 
     'author': "RutiversoTech",
@@ -21,7 +22,7 @@ aplica igual a compras y ventas, y deja la política de facturación siempre en
     'category': 'Inventory',
     'version': '0.1',
 
-    'depends': ['product', 'stock', 'account', 'sale'],
+    'depends': ['product', 'stock', 'account', 'sale', 'point_of_sale'],
 
     'external_dependencies': {
         'python': ['openpyxl'],

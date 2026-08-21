@@ -132,9 +132,10 @@ class ProductInventoryImportWizard(models.TransientModel):
         location = self._get_default_location()
         Template = self.env["product.template"]
 
-        # Política de facturación siempre "Cantidades ordenadas", y si se
-        # eligió un impuesto en el wizard, se aplica igual a compras y ventas.
-        common_vals = {"invoice_policy": "order"}
+        # Política de facturación siempre "Cantidades ordenadas", disponible
+        # en el PDV siempre, y si se eligió un impuesto en el wizard, se
+        # aplica igual a compras y ventas.
+        common_vals = {"invoice_policy": "order", "available_in_pos": True}
         if self.tax_id:
             common_vals["taxes_id"] = [(6, 0, [self.tax_id.id])]
             common_vals["supplier_taxes_id"] = [(6, 0, [self.tax_id.id])]
