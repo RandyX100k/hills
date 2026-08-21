@@ -1,0 +1,30 @@
+# -*- coding: utf-8 -*-
+{
+    'name': "product_inventory_import",
+
+    'summary': "Importar/actualizar productos e inventario desde Excel",
+
+    'description': """
+Wizard en Inventario para subir un Excel de productos (nombre, costo promedio,
+cantidad a la mano): si el producto ya existe (por nombre) se actualiza el
+costo y se ajusta la existencia; si no existe se crea como Bienes con
+inventario rastreado y se carga la existencia inicial.
+    """,
+
+    'author': "RutiversoTech",
+    'website': "https://www.rutiversotech.com",
+
+    'category': 'Inventory',
+    'version': '0.1',
+
+    'depends': ['product', 'stock'],
+
+    'external_dependencies': {
+        'python': ['openpyxl'],
+    },
+
+    'data': [
+        'security/ir.model.access.csv',
+        'wizard/product_inventory_import_wizard_views.xml',
+    ],
+}
