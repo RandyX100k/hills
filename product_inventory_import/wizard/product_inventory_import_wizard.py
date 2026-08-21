@@ -26,6 +26,13 @@ class ProductInventoryImportWizard(models.TransientModel):
 
     file_data = fields.Binary(string="Archivo Excel", required=True)
     filename = fields.Char(string="Nombre del archivo")
+    tax_id = fields.Many2one(
+        "account.tax",
+        string="ITBIS / Impuesto",
+        domain=[("type_tax_use", "!=", "none")],
+        help="Se aplica igual como impuesto de venta y de compra en los "
+             "productos creados/actualizados.",
+    )
     result = fields.Text(string="Resultado", readonly=True)
 
     def _get_workbook_lib(self):
@@ -125,6 +132,13 @@ class ProductInventoryImportWizard(models.TransientModel):
         location = self._get_default_location()
         Template = self.env["product.template"]
 
+        # Política de facturación siempre "Cantidades ordenadas", y si se
+        # eligió un impuesto en el wizard, se aplica igual a compras y ventas.
+        common_vals = {"invoice_policy": "order"}
+        if self.tax_id:
+            common_vals["taxes_id"] = [(6, 0, [self.tax_id.id])]
+            common_vals["supplier_taxes_id"] = [(6, 0, [self.tax_id.id])]
+
         updated = created = 0
         problems = []
         for row_number, row in enumerate(rows, start=2):
@@ -144,6 +158,7 @@ class ProductInventoryImportWizard(models.TransientModel):
                             template.standard_price = cost
                         if sale_price is not None:
                             template.list_price = sale_price
+                        template.write(common_vals)
                         updated += 1
                     else:
                         template = Template.create({
@@ -154,6 +169,7 @@ class ProductInventoryImportWizard(models.TransientModel):
                             "list_price": sale_price or 0.0,
                             "purchase_ok": True,
                             "sale_ok": True,
+                            **common_vals,
                         })
                         created += 1
                     if qty is not None and location:

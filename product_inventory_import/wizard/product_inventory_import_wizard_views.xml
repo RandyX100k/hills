@@ -13,11 +13,14 @@
                     precio de venta y la existencia (se deja igual a la cantidad del
                     Excel); si estaba configurado como Servicio se corrige a Bienes
                     para poder llevar inventario. Si no existe se crea como Bienes con
-                    inventario rastreado y se carga la existencia inicial.
+                    inventario rastreado y se carga la existencia inicial. En todos los
+                    casos la política de facturación queda en "Cantidades ordenadas" y,
+                    si eliges un impuesto abajo, se aplica igual en compras y ventas.
                 </p>
                 <group>
                     <field name="file_data" filename="filename" />
                     <field name="filename" invisible="1" />
+                    <field name="tax_id" />
                     <field name="result" readonly="1" nolabel="1"
                         placeholder="El resultado aparecerá aquí después de importar." />
                 </group>
