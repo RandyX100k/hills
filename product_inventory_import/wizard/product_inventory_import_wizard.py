@@ -16,6 +16,7 @@ NAME_HEADERS = {"nombre en pantalla", "nombre", "name", "display name"}
 COST_HEADERS = {"costo promedio", "costo", "cost", "average cost"}
 SALE_PRICE_HEADERS = {
     "precio de venta", "precio venta", "precio", "sale price", "pvp", "list price",
+    "valor total",
 }
 QTY_HEADERS = {"cantidad a la mano", "cantidad", "quantity on hand", "cantidad disponible"}
 
