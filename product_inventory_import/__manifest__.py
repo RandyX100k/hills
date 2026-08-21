@@ -6,9 +6,11 @@
 
     'description': """
 Wizard en Inventario para subir un Excel de productos (nombre, costo promedio,
-cantidad a la mano): si el producto ya existe (por nombre) se actualiza el
-costo y se ajusta la existencia; si no existe se crea como Bienes con
-inventario rastreado y se carga la existencia inicial.
+precio de venta, cantidad a la mano): si el producto ya existe (por nombre) se
+actualiza el costo, el precio de venta y se ajusta la existencia a la cantidad
+del Excel; si estaba configurado como Servicio se corrige a Bienes para poder
+llevar inventario. Si no existe se crea como Bienes con inventario rastreado y
+se carga la existencia inicial.
     """,
 
     'author': "RutiversoTech",

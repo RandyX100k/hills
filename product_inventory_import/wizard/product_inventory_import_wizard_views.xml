@@ -8,10 +8,12 @@
             <form string="Importar productos">
                 <p class="text-muted">
                     Sube un Excel con las columnas "Nombre en pantalla" (o "Nombre"),
-                    "Costo promedio" y "Cantidad a la mano". Si el producto ya existe
-                    (mismo nombre exacto) se actualiza el costo y la existencia; si no
-                    existe se crea como Bienes con inventario rastreado y se carga la
-                    existencia inicial.
+                    "Costo promedio", "Precio de venta" y "Cantidad a la mano". Si el
+                    producto ya existe (mismo nombre exacto) se actualiza el costo, el
+                    precio de venta y la existencia (se deja igual a la cantidad del
+                    Excel); si estaba configurado como Servicio se corrige a Bienes
+                    para poder llevar inventario. Si no existe se crea como Bienes con
+                    inventario rastreado y se carga la existencia inicial.
                 </p>
                 <group>
                     <field name="file_data" filename="filename" />

@@ -14,7 +14,10 @@ except ImportError:
 
 NAME_HEADERS = {"nombre en pantalla", "nombre", "name", "display name"}
 COST_HEADERS = {"costo promedio", "costo", "cost", "average cost"}
-QTY_HEADERS = {"cantidad a la mano", "cantidad", "quantity on hand"}
+SALE_PRICE_HEADERS = {
+    "precio de venta", "precio venta", "precio", "sale price", "pvp", "list price",
+}
+QTY_HEADERS = {"cantidad a la mano", "cantidad", "quantity on hand", "cantidad disponible"}
 
 
 class ProductInventoryImportWizard(models.TransientModel):
@@ -83,7 +86,7 @@ class ProductInventoryImportWizard(models.TransientModel):
         quant.action_apply_inventory()
 
     def _read_rows(self):
-        """Devuelve (rows_de_datos, name_idx, cost_idx, qty_idx) ya
+        """Devuelve (rows_de_datos, name_idx, cost_idx, sale_idx, qty_idx) ya
         validados, o lanza UserError si falta la columna de nombre."""
         if not self.file_data:
             raise UserError(_("Sube un archivo Excel primero."))
@@ -100,14 +103,22 @@ class ProductInventoryImportWizard(models.TransientModel):
         headers = [self._normalize(v) for v in rows[0]]
         name_idx = self._find_column(headers, NAME_HEADERS)
         cost_idx = self._find_column(headers, COST_HEADERS)
+        sale_idx = self._find_column(headers, SALE_PRICE_HEADERS)
         qty_idx = self._find_column(headers, QTY_HEADERS)
         if name_idx is None:
             raise UserError(_(
                 "No encontré la columna de nombre ('Nombre en pantalla') en el Excel."
             ))
-        return rows[1:], name_idx, cost_idx, qty_idx
+        return rows[1:], name_idx, cost_idx, sale_idx, qty_idx
 
-    def _process_rows(self, rows, name_idx, cost_idx, qty_idx):
+    def _ensure_storable_good(self, template):
+        """Los productos deben ser 'Bienes' (type=consu, is_storable=True)
+        para poder llevar inventario. Si el producto quedó mal configurado
+        como Servicio (u otro tipo no almacenable), lo corrige aquí."""
+        if template.type != "consu" or not template.is_storable:
+            template.write({"type": "consu", "is_storable": True})
+
+    def _process_rows(self, rows, name_idx, cost_idx, sale_idx, qty_idx):
         """Crea/actualiza productos y existencia fila por fila. Cada fila
         corre en su propio savepoint: si una falla (ej. costo mayor al
         precio), se reporta y se sigue con las demás sin perder el resto."""
@@ -121,14 +132,18 @@ class ProductInventoryImportWizard(models.TransientModel):
                 continue
             name = str(row[name_idx]).strip()
             cost = self._to_float(row[cost_idx]) if cost_idx is not None and cost_idx < len(row) else None
+            sale_price = self._to_float(row[sale_idx]) if sale_idx is not None and sale_idx < len(row) else None
             qty = self._to_float(row[qty_idx]) if qty_idx is not None and qty_idx < len(row) else None
 
             try:
                 with self.env.cr.savepoint():
                     template = Template.search([("name", "=", name)], limit=1)
                     if template:
+                        self._ensure_storable_good(template)
                         if cost is not None:
                             template.standard_price = cost
+                        if sale_price is not None:
+                            template.list_price = sale_price
                         updated += 1
                     else:
                         template = Template.create({
@@ -136,6 +151,7 @@ class ProductInventoryImportWizard(models.TransientModel):
                             "type": "consu",
                             "is_storable": True,
                             "standard_price": cost or 0.0,
+                            "list_price": sale_price or 0.0,
                             "purchase_ok": True,
                             "sale_ok": True,
                         })
@@ -152,7 +168,7 @@ class ProductInventoryImportWizard(models.TransientModel):
 
     def _run(self, dry_run):
         self.ensure_one()
-        rows, name_idx, cost_idx, qty_idx = self._read_rows()
+        rows, name_idx, cost_idx, sale_idx, qty_idx = self._read_rows()
 
         # En simulación, todo corre igual (incluyendo los ajustes de
         # inventario) pero queda envuelto en un savepoint que se revierte
@@ -162,7 +178,7 @@ class ProductInventoryImportWizard(models.TransientModel):
             if dry_run:
                 stack.enter_context(contextlib.closing(self.env.cr.savepoint()))
             updated, created, problems = self._process_rows(
-                rows, name_idx, cost_idx, qty_idx
+                rows, name_idx, cost_idx, sale_idx, qty_idx
             )
 
         lines = [
