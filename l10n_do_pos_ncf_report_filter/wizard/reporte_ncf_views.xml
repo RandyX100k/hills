@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_reporte_ncf_wizard_ncf_sequence" model="ir.ui.view">
+        <field name="name">pos.reporte.ncf.wizard.form.ncf.sequence</field>
+        <field name="model">pos.reporte.ncf.wizard</field>
+        <field name="inherit_id" ref="l10n_do_pos_role.view_reporte_ncf_wizard"/>
+        <field name="arch" type="xml">
+            <field name="config_id" position="after">
+                <field name="ncf_sequence_ids" options="{'no_create': True}" widget="many2many_tags"/>
+                <field name="include_no_ncf"/>
+            </field>
+        </field>
+    </record>
+</odoo>

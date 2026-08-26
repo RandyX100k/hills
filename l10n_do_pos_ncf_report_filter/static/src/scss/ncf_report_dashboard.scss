@@ -1,0 +1,287 @@
+.o_ncf_dashboard {
+    --ncf-ink: #1B2A3A;
+    --ncf-paper: #FFFFFF;
+    --ncf-surface: #F7F5F0;
+    --ncf-rule: #E4DFD2;
+    --ncf-accent-green: #1F7A5C;
+    --ncf-accent-amber: #B5651D;
+    --ncf-accent-red: #B3261E;
+
+    background: var(--ncf-surface);
+    min-height: 100%;
+
+    .o_ncf_dashboard_body {
+        padding: 20px 24px 32px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .o_ncf_filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: flex-end;
+        margin-bottom: 20px;
+        padding: 16px 20px;
+        background: var(--ncf-paper);
+        border-radius: 14px;
+        box-shadow: 0 1px 2px rgba(27, 42, 58, 0.06), 0 4px 16px rgba(27, 42, 58, 0.04);
+    }
+
+    .o_ncf_filter_field {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        min-width: 160px;
+
+        label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--ncf-ink);
+            opacity: 0.55;
+            font-weight: 600;
+        }
+
+        input[type="date"] {
+            border: 1px solid var(--ncf-rule);
+            border-radius: 8px;
+            padding: 6px 10px;
+            font-size: 13px;
+            color: var(--ncf-ink);
+            background: var(--ncf-paper);
+        }
+
+        input[type="date"]:focus {
+            outline: none;
+            border-color: var(--ncf-accent-green);
+            box-shadow: 0 0 0 3px rgba(31, 122, 92, 0.12);
+        }
+    }
+
+    .o_ncf_filter_wide {
+        flex: 1 1 260px;
+    }
+
+    .o_ncf_ncf_filter_row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .o_ncf_ncf_filter_row > .o_multi_record_selector {
+        flex: 1 1 auto;
+    }
+
+    .o_ncf_no_ncf_toggle {
+        flex: 0 0 auto;
+        border: 1px solid var(--ncf-rule);
+        background: var(--ncf-paper);
+        color: var(--ncf-ink);
+        opacity: 0.6;
+        border-radius: 20px;
+        padding: 5px 14px;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        white-space: nowrap;
+    }
+
+    .o_ncf_no_ncf_toggle:hover {
+        opacity: 0.85;
+    }
+
+    .o_ncf_no_ncf_toggle.active {
+        opacity: 1;
+        color: #fff;
+        background: var(--ncf-accent-amber);
+        border-color: var(--ncf-accent-amber);
+    }
+
+    .o_ncf_print_btn {
+        border-radius: 8px;
+        font-weight: 600;
+    }
+
+    .o_ncf_tabs {
+        display: inline-flex;
+        gap: 2px;
+        margin-bottom: 20px;
+        padding: 4px;
+        background: var(--ncf-rule);
+        border-radius: 10px;
+    }
+
+    .o_ncf_tab {
+        border: none;
+        background: transparent;
+        padding: 7px 18px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--ncf-ink);
+        opacity: 0.6;
+        border-radius: 7px;
+        cursor: pointer;
+        transition: background-color 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .o_ncf_tab:hover {
+        opacity: 0.85;
+    }
+
+    .o_ncf_tab.active {
+        opacity: 1;
+        background: var(--ncf-paper);
+        box-shadow: 0 1px 3px rgba(27, 42, 58, 0.15);
+    }
+
+    .o_ncf_money {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .o_ncf_ventas_tab {
+        background: var(--ncf-paper);
+        border-radius: 14px;
+        box-shadow: 0 1px 2px rgba(27, 42, 58, 0.06), 0 4px 16px rgba(27, 42, 58, 0.04);
+        overflow: hidden;
+    }
+
+    .o_ncf_summary_table,
+    .o_ncf_tax_table,
+    .o_ncf_orders_table {
+        width: 100%;
+        margin-bottom: 0;
+
+        thead th {
+            color: var(--ncf-ink) !important;
+            background-color: var(--ncf-surface);
+            border-bottom: 1px solid var(--ncf-rule) !important;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+            opacity: 0.75;
+        }
+
+        td {
+            border-color: var(--ncf-rule) !important;
+        }
+    }
+
+    .o_ncf_summary_table .o_ncf_group_row {
+        cursor: pointer;
+        transition: background-color 0.1s ease;
+    }
+
+    .o_ncf_summary_table .o_ncf_group_row:hover {
+        background: rgba(27, 42, 58, 0.035);
+    }
+
+    .o_ncf_summary_table .o_ncf_no_ncf_row td:first-child {
+        font-weight: 600;
+    }
+
+    .o_ncf_tag_amber {
+        display: inline-block;
+        margin-left: 8px;
+        padding: 1px 9px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 600;
+        color: #fff;
+        background: var(--ncf-accent-amber);
+    }
+
+    .o_ncf_summary_table .o_ncf_detail_row td {
+        background: var(--ncf-surface);
+        padding: 16px 20px;
+    }
+
+    .o_ncf_summary_table .o_ncf_totals_row td {
+        font-weight: 700;
+        border-top: 2px solid var(--ncf-ink) !important;
+    }
+
+    .o_ncf_loading {
+        padding: 48px;
+        text-align: center;
+        opacity: 0.5;
+        font-size: 13px;
+    }
+
+    .o_ncf_stub_row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .o_ncf_stub_card {
+        position: relative;
+        flex: 1 1 220px;
+        background: var(--ncf-paper);
+        color: var(--ncf-ink);
+        padding: 22px 22px 20px;
+        border-radius: 14px;
+        box-shadow: 0 1px 2px rgba(27, 42, 58, 0.06), 0 4px 16px rgba(27, 42, 58, 0.05);
+        border-top: 3px solid var(--ncf-rule);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .o_ncf_stub_card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 2px 4px rgba(27, 42, 58, 0.08), 0 8px 24px rgba(27, 42, 58, 0.08);
+    }
+
+    .o_ncf_stub_label {
+        display: block;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        opacity: 0.55;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    .o_ncf_stub_value {
+        display: block;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-variant-numeric: tabular-nums;
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+    }
+
+    .o_ncf_stub_sub {
+        display: block;
+        margin-top: 6px;
+        font-size: 13px;
+        opacity: 0.6;
+        font-weight: 600;
+    }
+
+    .o_ncf_stub_green {
+        border-top-color: var(--ncf-accent-green);
+    }
+
+    .o_ncf_stub_green .o_ncf_stub_value {
+        color: var(--ncf-accent-green);
+    }
+
+    .o_ncf_stub_amber {
+        border-top-color: var(--ncf-accent-amber);
+    }
+
+    .o_ncf_stub_amber .o_ncf_stub_value {
+        color: var(--ncf-accent-amber);
+    }
+
+    .o_ncf_stub_red {
+        border-top-color: var(--ncf-accent-red);
+    }
+
+    .o_ncf_stub_red .o_ncf_stub_value {
+        color: var(--ncf-accent-red);
+    }
+}

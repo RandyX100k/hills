@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+<t t-name="l10n_do_pos_ncf_report_filter.NcfReportDashboard">
+    <div class="o_ncf_dashboard">
+        <Layout display="display">
+            <div class="o_ncf_dashboard_body">
+                <div class="o_ncf_filters">
+                    <div class="o_ncf_filter_field">
+                        <label>Desde</label>
+                        <input type="date" t-att-value="state.dateFrom" t-on-change="onDateFromChange"/>
+                    </div>
+                    <div class="o_ncf_filter_field">
+                        <label>Hasta</label>
+                        <input type="date" t-att-value="state.dateTo" t-on-change="onDateToChange"/>
+                    </div>
+                    <div class="o_ncf_filter_field">
+                        <label>Punto de Venta</label>
+                        <RecordSelector
+                            resModel="'pos.config'"
+                            resId="state.configId"
+                            update.bind="onConfigChange"
+                            placeholder="'Todos'"
+                        />
+                    </div>
+                    <div class="o_ncf_filter_field o_ncf_filter_wide">
+                        <label>Numeraciones NCF</label>
+                        <div class="o_ncf_ncf_filter_row">
+                            <MultiRecordSelector
+                                resModel="'l10n_do.ncf.sequence'"
+                                resIds="state.ncfSequenceIds"
+                                update.bind="onNcfSequencesChange"
+                                placeholder="'Todas (general)'"
+                            />
+                            <button
+                                type="button"
+                                class="o_ncf_no_ncf_toggle"
+                                t-att-class="{ active: state.includeNoNcf }"
+                                t-on-click="toggleIncludeNoNcf">
+                                Sin NCF
+                            </button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary o_ncf_print_btn" t-on-click="printPdf">
+                        Descargar PDF
+                    </button>
+                </div>
+
+                <div class="o_ncf_tabs">
+                    <button
+                        class="o_ncf_tab"
+                        t-att-class="{ active: state.activeTab === 'ncf' }"
+                        t-on-click="() => this.setTab('ncf')">
+                        Ventas por NCF
+                    </button>
+                    <button
+                        class="o_ncf_tab"
+                        t-att-class="{ active: state.activeTab === 'profitability' }"
+                        t-on-click="() => this.setTab('profitability')">
+                        Rentabilidad
+                    </button>
+                </div>
+
+                <div t-if="state.loading" class="o_ncf_loading">Cargando...</div>
+
+                <t t-if="!state.loading and state.data">
+                    <div t-if="state.activeTab === 'ncf'" class="o_ncf_ventas_tab">
+                        <table class="table table-sm o_ncf_summary_table">
+                            <thead>
+                                <tr>
+                                    <th>Tipo de Comprobante</th>
+                                    <th class="text-center">Cant.</th>
+                                    <th class="text-end">Base Imponible</th>
+                                    <th class="text-end">ITBIS</th>
+                                    <th class="text-end">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="state.data.groups" t-as="grp" t-key="grp_index">
+                                    <tr class="o_ncf_group_row"
+                                        t-att-class="{ o_ncf_no_ncf_row: grp.no_ncf }"
+                                        t-on-click="() => this.toggleGroup(grp_index)">
+                                        <td>
+                                            <span t-esc="grp.name"/>
+                                            <span t-if="grp.no_ncf" class="o_ncf_tag_amber">Sin NCF</span>
+                                        </td>
+                                        <td class="text-center" t-esc="grp.count"/>
+                                        <td class="text-end o_ncf_money" t-esc="fmt(grp.base)"/>
+                                        <td class="text-end o_ncf_money" t-esc="fmt(grp.tax)"/>
+                                        <td class="text-end o_ncf_money" t-esc="fmt(grp.total)"/>
+                                    </tr>
+                                    <tr t-if="state.expanded[grp_index]" class="o_ncf_detail_row">
+                                        <td colspan="5">
+                                            <table class="table table-sm o_ncf_tax_table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Impuesto</th>
+                                                        <th class="text-end">Base</th>
+                                                        <th class="text-end">Monto</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr t-foreach="grp.tax_breakdown" t-as="tb" t-key="tb_index">
+                                                        <td t-esc="tb.name"/>
+                                                        <td class="text-end o_ncf_money" t-esc="fmt(tb.base)"/>
+                                                        <td class="text-end o_ncf_money" t-esc="fmt(tb.tax_amount)"/>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <table class="table table-sm o_ncf_orders_table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Orden</th>
+                                                        <th>Fecha</th>
+                                                        <th>Cliente</th>
+                                                        <th>NCF</th>
+                                                        <th class="text-end">Base</th>
+                                                        <th class="text-end">ITBIS</th>
+                                                        <th class="text-end">Total</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr t-foreach="grp.orders" t-as="order" t-key="order.id">
+                                                        <td t-esc="order.name"/>
+                                                        <td t-esc="order.date_order"/>
+                                                        <td t-esc="order.partner_name || '-'"/>
+                                                        <td t-esc="order.ncf || '-'"/>
+                                                        <td class="text-end o_ncf_money" t-esc="fmt(order.base)"/>
+                                                        <td class="text-end o_ncf_money" t-esc="fmt(order.tax)"/>
+                                                        <td class="text-end o_ncf_money" t-esc="fmt(order.total)"/>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                            <tfoot>
+                                <tr class="o_ncf_totals_row">
+                                    <td>TOTAL</td>
+                                    <td class="text-center" t-esc="state.data.totals.count"/>
+                                    <td class="text-end o_ncf_money" t-esc="fmt(state.data.totals.base)"/>
+                                    <td class="text-end o_ncf_money" t-esc="fmt(state.data.totals.tax)"/>
+                                    <td class="text-end o_ncf_money" t-esc="fmt(state.data.totals.total)"/>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+                    <div t-if="state.activeTab === 'profitability'" class="o_ncf_profit_tab">
+                        <div class="o_ncf_stub_row">
+                            <div class="o_ncf_stub_card o_ncf_stub_green">
+                                <span class="o_ncf_stub_label">Total Vendido</span>
+                                <span class="o_ncf_stub_value" t-esc="fmt(state.data.profitability.total_sold)"/>
+                            </div>
+                            <div class="o_ncf_stub_card o_ncf_stub_amber">
+                                <span class="o_ncf_stub_label">Costo</span>
+                                <span class="o_ncf_stub_value" t-esc="fmt(state.data.profitability.total_cost)"/>
+                            </div>
+                            <div class="o_ncf_stub_card"
+                                 t-att-class="{ o_ncf_stub_green: state.data.profitability.total_margin >= 0, o_ncf_stub_red: state.data.profitability.total_margin &lt; 0 }">
+                                <span class="o_ncf_stub_label">Rentabilidad Total</span>
+                                <span class="o_ncf_stub_value" t-esc="fmt(state.data.profitability.total_margin)"/>
+                                <span class="o_ncf_stub_sub" t-esc="state.data.profitability.margin_pct.toFixed(1) + '%'"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </Layout>
+    </div>
+</t>
+</templates>
