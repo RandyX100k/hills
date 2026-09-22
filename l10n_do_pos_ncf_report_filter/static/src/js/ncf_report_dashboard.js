@@ -8,7 +8,14 @@ import { RecordSelector } from "@web/core/record_selectors/record_selector";
 import { MultiRecordSelector } from "@web/core/record_selectors/multi_record_selector";
 
 function today() {
-    return new Date().toISOString().slice(0, 10);
+    // NOT toISOString().slice(0, 10): that reads the date in UTC, which in
+    // a timezone behind UTC (e.g. RD, UTC-4) already rolls over to
+    // tomorrow late at night local time. Build the string from local date
+    // parts instead so it matches the browser's actual calendar day.
+    const d = new Date();
+    const month = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    return `${d.getFullYear()}-${month}-${day}`;
 }
 
 export class NcfReportDashboard extends Component {
