@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <templates id="template" xml:space="preserve">
 <t t-name="l10n_do_pos_ncf_report_filter.NcfReportDashboard">
-    <div class="o_ncf_dashboard">
+    <!-- o_action: da la altura al contenedor para que .o_content pueda hacer scroll.
+         Sin ella la raíz crece sin límite y .o_action_manager (overflow hidden) la corta. -->
+    <div class="o_action o_ncf_dashboard">
         <Layout display="display">
             <div class="o_ncf_dashboard_body">
                 <div class="o_ncf_filters">

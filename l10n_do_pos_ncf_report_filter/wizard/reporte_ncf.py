@@ -38,7 +38,12 @@ class ReporteNcfWizard(models.TransientModel):
             'orders': [{
                 'id': o.id,
                 'name': o.name,
-                'date_order': fields.Datetime.to_string(o.date_order),
+                # date_order está en UTC: mostrarlo tal cual adelantaba la hora
+                # 4 horas respecto al POS y a Facturación (RD es UTC-4). Mismo
+                # formato que usa el PDF de este reporte.
+                'date_order': fields.Datetime.context_timestamp(
+                    self, o.date_order
+                ).strftime('%d/%m/%Y %H:%M'),
                 'partner_name': o.partner_id.name or '',
                 'ncf': o.l10n_do_fiscal_number or o.l10n_do_pos_no_ncf_number or '',
                 'base': o.amount_total - o.amount_tax,
