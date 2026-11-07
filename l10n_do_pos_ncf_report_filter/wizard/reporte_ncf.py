@@ -13,17 +13,41 @@ class ReporteNcfWizard(models.TransientModel):
     include_no_ncf = fields.Boolean(string='Incluir Sin NCF')
 
     def _get_orders(self):
+        # Las devoluciones (Notas de Crédito del POS) se incluyen: antes se
+        # sacaban con "not o.refunded_order_id", así que una NC B04/E34 no
+        # aparecía nunca en el reporte, ni seleccionando su numeración.
+        # _get_ncf_summary (l10n_do_pos_role) ya las agrupa aparte por el
+        # tipo de comprobante de su factura, con monto negativo.
         orders = super()._get_orders()
-        orders = orders.filtered(lambda o: not o.refunded_order_id)
         if self.ncf_sequence_ids or self.include_no_ncf:
             doc_type_ids = self.ncf_sequence_ids.l10n_latam_document_type_id.ids
             orders = orders.filtered(
                 lambda o: (
-                    (doc_type_ids and o.l10n_latam_document_type_id.id in doc_type_ids)
-                    or (self.include_no_ncf and o.l10n_do_pos_no_ncf)
+                    (doc_type_ids and self._get_order_doc_type(o).id in doc_type_ids)
+                    or (self.include_no_ncf and self._is_order_no_ncf(o))
                 )
             )
         return orders
+
+    def _get_order_doc_type(self, order):
+        # El tipo real es el de la factura: en una NC del POS la orden se
+        # queda con el tipo de la venta original (p. ej. B01) y es
+        # _prepare_invoice_vals quien le pone el B04 a la factura. Filtrar
+        # por el de la orden hacía que al elegir la numeración B04 la NC no
+        # saliera (y que saliera al elegir B01).
+        return (
+            order.account_move.l10n_latam_document_type_id
+            or order.l10n_latam_document_type_id
+        )
+
+    def _is_order_no_ncf(self, order):
+        # Sin NCF = la factura no tiene tipo de comprobante (diario sin
+        # NCF), incluida la NC de una venta que no tenía NCF. Una NC con
+        # B04 nunca es "Sin NCF" aunque la orden traiga el
+        # l10n_do_pos_no_ncf=True por defecto.
+        if order.account_move:
+            return not order.account_move.l10n_latam_document_type_id
+        return order.l10n_do_pos_no_ncf
 
     def _serialize_groups(self, groups):
         return [{
