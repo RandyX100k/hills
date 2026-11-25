@@ -1,0 +1,35 @@
+<!--
+    Odoo Proprietary License v1.1 - Strict Commercial Use
+    © 2026-Present Odonity. All Rights Reserved.
+    Module Name: Product Price Lock Pro | Restrict Price Edit by User Role | Price Access Control (By Odonity)
+    License Owner: Odonity (https://www.odonity.com)
+    Support Email: odonity.services@gmail.com
+    This software is licensed, not sold. Unauthorized distribution, reproduction,
+    modification, or use is strictly prohibited. You are granted a non-transferable,
+    non-exclusive, and non-sublicensable license under strict terms. See full license
+    at the bottom of this module or contact Odonity for details.
+-->
+<odoo>
+    <!-- Product Variant – Form View -->
+    <record id="odnt_view_product_product_form_price" model="ir.ui.view">
+        <field name="name">odnt.product.product.form.price</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <field name="odnt_price_editable" invisible="1"/>
+            </xpath>
+
+            <xpath expr="//field[@name='lst_price']" position="attributes">
+                <attribute name="readonly">not odnt_price_editable</attribute>
+                <attribute name="force_save">1</attribute>
+            </xpath>
+
+            <!-- <xpath expr="//field[@name='standard_price']" position="attributes">
+                <attribute name="readonly">not odnt_price_editable</attribute>
+                <attribute name="force_save">1</attribute>
+            </xpath> -->
+        </field>
+    </record>
+</odoo>

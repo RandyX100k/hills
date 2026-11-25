@@ -1,0 +1,69 @@
+<!--
+    Odoo Proprietary License v1.1 - Strict Commercial Use
+    © 2026-Present Odonity. All Rights Reserved.
+    Module Name: Product Price Lock Pro | Restrict Price Edit by User Role | Price Access Control (By Odonity)
+    License Owner: Odonity (https://www.odonity.com)
+    Support Email: odonity.services@gmail.com
+    This software is licensed, not sold. Unauthorized distribution, reproduction,
+    modification, or use is strictly prohibited. You are granted a non-transferable,
+    non-exclusive, and non-sublicensable license under strict terms. See full license
+    at the bottom of this module or contact Odonity for details.
+-->
+<odoo>
+    <!-- Product Template – Form View -->
+    <record id="odnt_view_product_template_form_price" model="ir.ui.view">
+        <field name="name">odnt.product.template.form.price</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+
+            <xpath expr="//sheet" position="before">
+                <field name="odnt_price_editable" invisible="1"/>
+            </xpath>
+
+            <xpath expr="//field[@name='list_price']" position="attributes">
+                <attribute name="readonly">not odnt_price_editable</attribute>
+                <attribute name="force_save">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='standard_price']" position="attributes">
+                <attribute name="readonly">not odnt_price_editable</attribute>
+                <attribute name="force_save">1</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+    <!-- Product Template – List View -->
+    <record id="odnt_view_product_template_list_price" model="ir.ui.view">
+        <field name="name">odnt.product.template.list.price</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+
+            <xpath expr="//list" position="inside">
+                <field name="odnt_price_editable" column_invisible="1"/>
+            </xpath>
+
+            <xpath expr="//field[@name='list_price']" position="attributes">
+                <attribute name="readonly">not odnt_price_editable</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+    <!-- Product Template – Kanban View -->
+    <record id="odnt_view_product_template_kanban_price" model="ir.ui.view">
+        <field name="name">odnt.product.template.kanban.price</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_kanban_view"/>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <xpath expr="//kanban" position="inside">
+                <field name="odnt_price_editable"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

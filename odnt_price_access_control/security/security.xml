@@ -1,0 +1,20 @@
+<!--
+    Odoo Proprietary License v1.1 - Strict Commercial Use
+    © 2026-Present Odonity. All Rights Reserved.
+    Module Name: Product Price Lock Pro | Restrict Price Edit by User Role | Price Access Control (By Odonity)
+    License Owner: Odonity (https://www.odonity.com)
+    Support Email: odonity.services@gmail.com
+    This software is licensed, not sold. Unauthorized distribution, reproduction,
+    modification, or use is strictly prohibited. You are granted a non-transferable,
+    non-exclusive, and non-sublicensable license under strict terms. See full license
+    at the bottom of this module or contact Odonity for details.
+-->
+<odoo>
+    <record id="odnt_group_price_manager" model="res.groups">
+        <field name="name">Price Manager</field>
+        <field name="comment">
+            Users in this group are allowed to change product Sales Price
+            and Cost Price. All other users will have those fields read-only.
+        </field>
+    </record>
+</odoo>
