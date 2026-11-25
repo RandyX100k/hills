@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="rcstudio_whatsapp_coexistence.MapPicker">
+        <div class="o_rcs_wa_map_picker">
+            <div class="d-flex gap-2 mb-2">
+                <input type="text" class="form-control form-control-sm" placeholder="Search an address..."
+                       t-model="state.query" t-on-keydown="onSearchKeydown"/>
+                <button class="btn btn-sm btn-secondary flex-shrink-0" t-on-click="search" t-att-disabled="state.searching">
+                    <i t-if="state.searching" class="fa fa-circle-o-notch fa-spin"/>
+                    <i t-else="" class="fa fa-search"/>
+                </button>
+                <button class="btn btn-sm btn-secondary flex-shrink-0" t-on-click="useMyPosition" title="Use my current position">
+                    <i class="fa fa-crosshairs"/>
+                </button>
+            </div>
+            <div t-if="state.error" class="text-danger small mb-1" t-esc="state.error"/>
+            <div class="o_rcs_wa_map rounded border" t-ref="map" t-att-style="'height:' + props.height"/>
+            <small class="text-muted">Click on the map or drag the marker to set the point.</small>
+        </div>
+    </t>
+</templates>

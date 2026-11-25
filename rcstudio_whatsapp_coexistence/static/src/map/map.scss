@@ -1,0 +1,7 @@
+.o_rcs_wa_map_picker {
+    .o_rcs_wa_map { width: 100%; min-height: 200px; background: var(--bs-tertiary-bg, #f4f5f7); }
+    // Leaflet's pane z-index must stay below Odoo dialogs and dropdowns
+    .leaflet-pane, .leaflet-control { z-index: 1; }
+    .leaflet-top, .leaflet-bottom { z-index: 2; }
+}
+.o_rcs_wa_location_field { max-width: 640px; }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="rcstudio_whatsapp_coexistence.Systray">
+        <div t-if="store.isOperator" class="o_rcs_wa_systray o-dropdown position-relative">
+            <button class="dropdown-toggle o-no-caret o-dropdown--no-caret btn" title="WhatsApp inbox" t-on-click="onClick">
+                <i class="fa fa-whatsapp fa-lg" role="img" aria-label="WhatsApp"/>
+                <span t-if="store.unreadTotal" class="o_rcs_wa_systray_badge badge rounded-pill text-bg-success" t-esc="store.unreadTotal"/>
+            </button>
+        </div>
+    </t>
+</templates>

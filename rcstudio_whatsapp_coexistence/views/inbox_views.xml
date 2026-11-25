@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- The inbox is an OWL client action; the tag is registered in static/src/inbox. -->
+    <record id="action_inbox" model="ir.actions.client">
+        <field name="name">Inbox</field>
+        <field name="tag">rcs_whatsapp.inbox</field>
+    </record>
+
+</odoo>

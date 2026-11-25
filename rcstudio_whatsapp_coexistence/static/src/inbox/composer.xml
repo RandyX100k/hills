@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="rcstudio_whatsapp_coexistence.Composer">
+        <div class="o_rcs_wa_composer">
+            <div t-if="store.replyTo" class="o_rcs_wa_reply_strip d-flex align-items-center gap-2 px-3 py-1 small">
+                <i class="fa fa-reply opacity-50"/>
+                <div class="flex-grow-1 overflow-hidden">
+                    <div class="fw-bold" t-esc="replyAuthor"/>
+                    <div class="text-truncate opacity-75" t-esc="replyPreview"/>
+                </div>
+                <button class="btn btn-sm btn-link" title="Cancel reply" t-on-click="cancelReply"><i class="fa fa-times"/></button>
+            </div>
+            <div t-if="state.file" class="o_rcs_wa_file_strip d-flex align-items-center gap-2 px-3 py-1 small">
+                <i class="fa fa-paperclip opacity-50"/>
+                <span class="text-truncate fw-bold" t-esc="state.file.name"/>
+                <span class="opacity-75 flex-shrink-0" t-esc="fileSize"/>
+                <button class="btn btn-sm btn-link ms-auto" title="Remove attachment" t-on-click="removeFile"><i class="fa fa-times"/></button>
+            </div>
+            <div t-if="state.recording" class="o_rcs_wa_recording d-flex align-items-center gap-2 px-3 py-2">
+                <span class="o_rcs_wa_rec_dot flex-shrink-0"/>
+                <span class="fw-bold" t-esc="recordingTime"/>
+                <span class="opacity-75 small flex-grow-1 text-truncate">Recording a voice note</span>
+                <button class="o_rcs_wa_tool btn btn-link" title="Discard" aria-label="Discard the recording" t-on-click="() => this.stopRecording(false)"><i class="fa fa-trash-o fa-lg"/></button>
+                <button class="o_rcs_wa_send btn btn-primary rounded-circle flex-shrink-0" title="Send the voice note" aria-label="Send the voice note" t-on-click="() => this.stopRecording(true)"><i class="fa fa-paper-plane"/></button>
+            </div>
+            <div t-else="" class="d-flex align-items-end gap-1 px-2 py-2">
+                <button class="o_rcs_wa_tool btn btn-link" t-ref="emojiButton" title="Emoji" aria-label="Emoji"><i class="fa fa-smile-o fa-lg"/></button>
+                <button class="o_rcs_wa_tool btn btn-link" title="Attach a file" aria-label="Attach a file" t-on-click="onClickAttach"><i class="fa fa-paperclip fa-lg"/></button>
+                <button class="o_rcs_wa_tool btn btn-link" title="Send a template, optionally filled from a quotation, invoice, delivery..." aria-label="Send a template" t-on-click="() => this.store.openTemplateWizard()"><i class="fa fa-file-text-o fa-lg"/></button>
+                <button class="o_rcs_wa_tool btn btn-link" title="Send a location" aria-label="Send a location" t-on-click="onClickLocation"><i class="fa fa-map-marker fa-lg"/></button>
+                <input type="file" class="d-none" t-ref="fileInput" t-on-change="onFileChange"/>
+                <textarea class="o_rcs_wa_textarea form-control" rows="1" placeholder="Type a message" t-ref="textarea"
+                          t-model="state.body" t-on-keydown="onKeydown" t-on-input="autoGrow"/>
+                <button t-if="canRecord" class="o_rcs_wa_send btn btn-primary rounded-circle flex-shrink-0" title="Record a voice note" aria-label="Record a voice note" t-att-disabled="store.sending" t-on-click="startRecording">
+                    <i t-if="store.sending" class="fa fa-circle-o-notch fa-spin"/>
+                    <i t-else="" class="fa fa-microphone"/>
+                </button>
+                <button t-else="" class="o_rcs_wa_send btn btn-primary rounded-circle flex-shrink-0" title="Send" aria-label="Send" t-att-disabled="!canSend" t-on-click="send">
+                    <i t-if="store.sending" class="fa fa-circle-o-notch fa-spin"/>
+                    <i t-else="" class="fa fa-paper-plane"/>
+                </button>
+            </div>
+        </div>
+    </t>
+</templates>

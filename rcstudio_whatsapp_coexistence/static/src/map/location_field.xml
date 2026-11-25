@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="rcstudio_whatsapp_coexistence.LocationField">
+        <div class="o_rcs_wa_location_field w-100">
+            <div class="d-flex gap-2 mb-2">
+                <input type="number" step="any" class="form-control form-control-sm" placeholder="Latitude"
+                       t-att-value="latitude" t-att-readonly="props.readonly" t-on-change="(ev) => this.onInput(props.name, ev)"/>
+                <input type="number" step="any" class="form-control form-control-sm" placeholder="Longitude"
+                       t-att-value="longitude" t-att-readonly="props.readonly" t-on-change="(ev) => this.onInput(props.longitudeField, ev)"/>
+            </div>
+            <MapPicker t-if="!props.readonly" latitude="latitude" longitude="longitude" onChange.bind="onChange"/>
+        </div>
+    </t>
+</templates>

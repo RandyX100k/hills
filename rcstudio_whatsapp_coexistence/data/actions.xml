@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- "Send by WhatsApp" on contacts is always available; the other models get their
+         binding from the post-install hook, depending on which apps are installed. -->
+    <record id="binding_res_partner" model="ir.actions.act_window">
+        <field name="name">Send by WhatsApp</field>
+        <field name="res_model">rcs.whatsapp.send</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="base.model_res_partner"/>
+        <field name="binding_type">action</field>
+        <field name="binding_view_types">form,list</field>
+    </record>
+
+</odoo>

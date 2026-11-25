@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_number_form_coexistence" model="ir.ui.view">
+        <field name="name">rcs.whatsapp.number.form.coexistence</field>
+        <field name="model">rcs.whatsapp.number</field>
+        <field name="inherit_id" ref="rcstudio_whatsapp_coexistence.view_number_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//header/field[@name='status']" position="before">
+                <button name="action_connect_coexistence" type="object" string="Connect via Coexistence"
+                        class="btn-primary" icon="fa-qrcode"
+                        invisible="connection_mode != 'coexistence' or status == 'connected'"/>
+                <button name="action_diagnose" type="object" string="Diagnose"
+                        invisible="connection_mode != 'coexistence' or status != 'connected'"/>
+                <button name="action_sync_contacts" type="object" string="Sync contacts"
+                        invisible="connection_mode != 'coexistence' or status != 'connected'"/>
+                <button name="action_sync_history" type="object" string="Sync history"
+                        invisible="connection_mode != 'coexistence' or status != 'connected'"/>
+                <button name="action_disconnect" type="object" string="Disconnect"
+                        invisible="connection_mode != 'coexistence' or status != 'connected'"
+                        confirm="Disconnect this number? Odoo forgets the token and stops receiving its messages. The number keeps working on the phone; connect it again with a new QR code whenever you want."/>
+            </xpath>
+
+            <xpath expr="//page[@name='webhook']" position="after">
+                <page string="Coexistence" name="coexistence" invisible="connection_mode != 'coexistence'">
+                    <group>
+                        <group string="One-time syncs">
+                            <field name="sync_contacts_done"/>
+                            <field name="sync_history_done"/>
+                        </group>
+                        <group string="Signup session" groups="rcstudio_whatsapp_coexistence.group_manager"
+                               invisible="provider != 'rcstudio' or not signup_token">
+                            <field name="signup_token" password="True"/>
+                        </group>
+                    </group>
+                    <p class="text-muted">
+                        Meta allows each sync once per onboarding: the phone's contacts and the last 6 months of
+                        conversations arrive over the webhook during the minutes after the connection. To run a
+                        sync again, disconnect the number and connect it with a new QR code.
+                    </p>
+                    <group string="Log">
+                        <field name="coexistence_status" nolabel="1" colspan="2"/>
+                    </group>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

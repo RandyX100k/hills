@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- A number with no operators listed is open to every WhatsApp user; otherwise only
+         the listed operators reach it. Managers see everything. Company restriction on top. -->
+
+    <record id="rule_number_operator" model="ir.rule">
+        <field name="name">WhatsApp number: operators see their numbers</field>
+        <field name="model_id" ref="model_rcs_whatsapp_number"/>
+        <field name="groups" eval="[(4, ref('group_user'))]"/>
+        <field name="domain_force">['|', ('user_ids', '=', False), ('user_ids', 'in', [user.id])]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <record id="rule_number_manager" model="ir.rule">
+        <field name="name">WhatsApp number: managers see all</field>
+        <field name="model_id" ref="model_rcs_whatsapp_number"/>
+        <field name="groups" eval="[(4, ref('group_manager'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+    <record id="rule_number_company" model="ir.rule">
+        <field name="name">WhatsApp number: allowed companies</field>
+        <field name="model_id" ref="model_rcs_whatsapp_number"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|', ('company_ids', '=', False), ('company_ids', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_conversation_operator" model="ir.rule">
+        <field name="name">WhatsApp conversation: operators see their numbers</field>
+        <field name="model_id" ref="model_rcs_whatsapp_conversation"/>
+        <field name="groups" eval="[(4, ref('group_user'))]"/>
+        <field name="domain_force">['|', ('number_id.user_ids', '=', False), ('number_id.user_ids', 'in', [user.id])]</field>
+    </record>
+
+    <record id="rule_conversation_manager" model="ir.rule">
+        <field name="name">WhatsApp conversation: managers see all</field>
+        <field name="model_id" ref="model_rcs_whatsapp_conversation"/>
+        <field name="groups" eval="[(4, ref('group_manager'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+    <record id="rule_conversation_company" model="ir.rule">
+        <field name="name">WhatsApp conversation: allowed companies</field>
+        <field name="model_id" ref="model_rcs_whatsapp_conversation"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|', ('number_id.company_ids', '=', False), ('number_id.company_ids', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_message_operator" model="ir.rule">
+        <field name="name">WhatsApp message: operators see their numbers</field>
+        <field name="model_id" ref="model_rcs_whatsapp_message"/>
+        <field name="groups" eval="[(4, ref('group_user'))]"/>
+        <field name="domain_force">['|', ('number_id.user_ids', '=', False), ('number_id.user_ids', 'in', [user.id])]</field>
+    </record>
+
+    <record id="rule_message_manager" model="ir.rule">
+        <field name="name">WhatsApp message: managers see all</field>
+        <field name="model_id" ref="model_rcs_whatsapp_message"/>
+        <field name="groups" eval="[(4, ref('group_manager'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+    <record id="rule_message_company" model="ir.rule">
+        <field name="name">WhatsApp message: allowed companies</field>
+        <field name="model_id" ref="model_rcs_whatsapp_message"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|', ('number_id.company_ids', '=', False), ('number_id.company_ids', 'in', company_ids)]</field>
+    </record>
+
+    <record id="rule_link_operator" model="ir.rule">
+        <field name="name">WhatsApp conversation link: follows the conversation</field>
+        <field name="model_id" ref="model_rcs_whatsapp_conversation_link"/>
+        <field name="groups" eval="[(4, ref('group_user'))]"/>
+        <field name="domain_force">['|', ('conversation_id.number_id.user_ids', '=', False), ('conversation_id.number_id.user_ids', 'in', [user.id])]</field>
+    </record>
+
+    <record id="rule_link_manager" model="ir.rule">
+        <field name="name">WhatsApp conversation link: managers see all</field>
+        <field name="model_id" ref="model_rcs_whatsapp_conversation_link"/>
+        <field name="groups" eval="[(4, ref('group_manager'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+
+    <record id="rule_template_company" model="ir.rule">
+        <field name="name">WhatsApp template: allowed companies</field>
+        <field name="model_id" ref="model_rcs_whatsapp_template"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|', ('number_id.company_ids', '=', False), ('number_id.company_ids', 'in', company_ids)]</field>
+    </record>
+
+</odoo>

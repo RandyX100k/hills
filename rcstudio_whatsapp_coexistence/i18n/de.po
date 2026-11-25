@@ -1,0 +1,3121 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* rcstudio_whatsapp_coexistence
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-19 07:25+0000\n"
+"PO-Revision-Date: 2026-09-19 07:25+0000\n"
+"Last-Translator: RC Studio <dev@rcstudio.dev>\n"
+"Language-Team: German\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/coexistence.py:0
+msgid ""
+"%(error)s. Meta grants the contacts and history syncs once per onboarding, "
+"and a number that was still connected to the Cloud API when it was connected"
+" again does not get a new pair. To sync again: on the phone, open WhatsApp "
+"Business > Settings > Account > Business Platform > Disconnect Account, then"
+" connect the number again from Odoo and accept the confirmation pop-up the "
+"app shows (keep it open and online; if the pop-up was dismissed, restart the"
+" app). If the number had never been connected before, check the phone as "
+"described and that the history, smb_app_state_sync and smb_message_echoes "
+"webhooks are subscribed on the app."
+msgstr ""
+"%(error)s. Meta gewährt die Kontakt- und Verlaufssynchronisierung einmal pro"
+" Onboarding, und eine Nummer, die beim erneuten Verbinden noch mit der Cloud"
+" API verbunden war, erhält kein neues Paar. Für eine erneute "
+"Synchronisierung: Öffnen Sie auf dem Telefon WhatsApp Business > "
+"Einstellungen > Konto > Business Platform > Konto trennen, verbinden Sie die"
+" Nummer dann erneut aus Odoo und bestätigen Sie das Pop-up in der App (App "
+"geöffnet und online lassen; wurde das Pop-up geschlossen, starten Sie die "
+"App neu). War die Nummer zuvor nie verbunden, prüfen Sie das Telefon wie "
+"beschrieben und ob die Webhooks history, smb_app_state_sync und "
+"smb_message_echoes in der App abonniert sind."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/coexistence.py:0
+msgid ""
+"%(error)s. On the sync endpoint this is Meta's per-number throttle, not your"
+" app's call quota: it happens when the same number was connected again "
+"shortly after a previous onboarding. Wait a while (Meta suggests up to 24 "
+"hours) and retry from the number's form."
+msgstr ""
+"%(error)s. Am Sync-Endpunkt ist das die Drosselung pro Nummer durch Meta, "
+"nicht das Aufrufkontingent Ihrer App: Sie tritt auf, wenn dieselbe Nummer "
+"kurz nach einem vorherigen Onboarding erneut verbunden wurde. Warten Sie "
+"eine Weile (Meta empfiehlt bis zu 24 Stunden) und versuchen Sie es im "
+"Formular der Nummer erneut."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/wizard/send.py:0
+msgid "%(sent)s sent, %(skipped)s skipped (no phone or opted out)."
+msgstr ""
+"%(sent)s gesendet, %(skipped)s übersprungen (keine Telefonnummer oder "
+"abgemeldet)."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/template.py:0
+msgid "%s has no field %s."
+msgstr "%s hat kein Feld %s."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/template.py:0
+msgid "%s looks like a secret and cannot be sent by WhatsApp."
+msgstr ""
+"%s sieht wie ein Geheimnis aus und kann nicht per WhatsApp gesendet werden."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/conversation.py:0
+msgid "%s opted out of WhatsApp messages from you."
+msgstr "%s hat sich von Ihren WhatsApp-Nachrichten abgemeldet."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/library.py:0
+msgid ""
+"%s sample templates created for the apps installed. Review them, then submit"
+" them to Meta for approval."
+msgstr ""
+"%s Beispielvorlagen für die installierten Apps erstellt. Prüfen Sie sie und "
+"reichen Sie sie dann bei Meta zur Genehmigung ein."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/template.py:0
+msgid "%s was already submitted."
+msgstr "%s wurde bereits eingereicht."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_param__placeholder
+msgid "1, 2 … or the placeholder's name"
+msgstr "1, 2 … oder der Name des Platzhalters"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/thread.js:0
+msgid "24-hour window closed"
+msgstr "24-Stunden-Fenster geschlossen"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/conversation_list.js:0
+msgid "24-hour window closed: only templates can be sent"
+msgstr ""
+"24-Stunden-Fenster geschlossen: Es können nur Vorlagen gesendet werden"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/template.py:0
+msgid ""
+"A %s header needs a sample file: set one in \"Header file\" before "
+"submitting."
+msgstr ""
+"Eine %s-Kopfzeile benötigt eine Beispieldatei: Hinterlegen Sie eine unter "
+"„Kopfzeilendatei\", bevor Sie senden."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.constraint,message:rcstudio_whatsapp_coexistence.constraint_rcs_whatsapp_message_wa_message_id_unique
+msgid "A WhatsApp message id can only be stored once."
+msgstr "Eine WhatsApp-Nachrichten-ID kann nur einmal gespeichert werden."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.res_config_settings_view_form
+msgid ""
+"A customer who replies one of these words is blacklisted. Comma separated."
+msgstr ""
+"Ein Kunde, der mit einem dieser Wörter antwortet, wird auf die schwarze "
+"Liste gesetzt. Durch Kommas getrennt."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.actions.act_window,help:rcstudio_whatsapp_coexistence.action_number
+msgid ""
+"A dedicated Cloud API number with your own Meta app, or the number you "
+"already use on the phone with Coexistence."
+msgstr ""
+"Eine dedizierte Cloud-API-Nummer mit Ihrer eigenen Meta-App oder die Nummer,"
+" die Sie bereits auf dem Telefon mit Coexistence verwenden."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__header_attachment_id
+msgid ""
+"A fixed image, video or document sent as the header. Leave empty and choose "
+"a report to send the document of the record instead."
+msgstr ""
+"Ein festes Bild, Video oder Dokument, das als Kopfzeile gesendet wird. Leer "
+"lassen und einen Bericht wählen, um stattdessen das Dokument des Datensatzes"
+" zu senden."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__label
+msgid "A friendly name shown to the people who send it."
+msgstr ""
+"Ein verständlicher Name, der den Personen angezeigt wird, die sie senden."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form
+msgid ""
+"A new token means a new URL: the current one stops working and Meta is told "
+"about the new one. Continue?"
+msgstr ""
+"Ein neues Token bedeutet eine neue URL: Die aktuelle funktioniert nicht mehr"
+" und Meta wird die neue mitgeteilt. Fortfahren?"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.constraint,message:rcstudio_whatsapp_coexistence.constraint_rcs_whatsapp_template_number_name_language_unique
+msgid "A template name and language can only exist once per business number."
+msgstr ""
+"Ein Vorlagenname und eine Sprache können pro Geschäftsnummer nur einmal "
+"existieren."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/template.py:0
+msgid "A text header needs its text."
+msgstr "Eine Textkopfzeile benötigt ihren Text."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__access_token
+msgid "Access Token"
+msgstr "Zugriffstoken"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__active
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__active
+msgid "Active"
+msgstr "Aktiv"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/conversation.py:0
+msgid "Added from the WhatsApp conversation"
+msgstr "Aus der WhatsApp-Konversation hinzugefügt"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/map/location_dialog.xml:0
+msgid "Address shown under the pin (optional)"
+msgstr "Adresse unter der Markierung (optional)"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.res_config_settings_view_form
+msgid "Advanced"
+msgstr "Erweitert"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/conversation_list.js:0
+msgid "All"
+msgstr "Alle"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/conversation_list.xml:0
+msgid "All numbers"
+msgstr "Alle Nummern"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__company_ids
+msgid "Allowed Companies"
+msgstr "Zugelassene Unternehmen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__allowed_template_ids
+msgid "Allowed Template"
+msgstr "Zulässige Vorlage"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:res.groups,comment:rcstudio_whatsapp_coexistence.group_user
+msgid ""
+"Answers conversations from the inbox and sends templates from records, on "
+"the business numbers they are assigned to."
+msgstr ""
+"Beantwortet Konversationen aus dem Posteingang und sendet Vorlagen aus "
+"Datensätzen, auf den Geschäftsnummern, denen er zugewiesen ist."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form
+msgid ""
+"Any Meta Tech Provider approved for <b>WhatsApp Business App Onboarding</b> works here.\n"
+"                        The App ID, App Secret and Login Configuration ID are issued by that provider, not by RC Studio.\n"
+"                        RC Studio cannot obtain them for you and is not responsible if the provider does not hand them over."
+msgstr ""
+"Jeder von Meta für <b>WhatsApp Business App Onboarding</b> zugelassene Tech Provider funktioniert hier.\n"
+"                        App ID, App Secret und Login Configuration ID werden von diesem Anbieter ausgestellt, nicht von RC Studio.\n"
+"                        RC Studio kann sie nicht für Sie beschaffen und ist nicht verantwortlich, wenn der Anbieter sie nicht herausgibt."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__app_id
+msgid "App ID"
+msgstr "App ID"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__app_secret
+msgid "App Secret"
+msgstr "App Secret"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__model_id
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_template_search
+msgid "Applies to"
+msgstr "Gilt für"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_template__status__approved
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_template_search
+msgid "Approved"
+msgstr "Genehmigt"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_template_search
+msgid "Archived"
+msgstr "Archiviert"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_template_param__source__ask
+msgid "Asked when sending"
+msgstr "Beim Senden abgefragt"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/thread.xml:0
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_conversation_form
+msgid "Assign to me"
+msgstr "Mir zuweisen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__assigned_user_id
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_conversation_search
+msgid "Assigned to"
+msgstr "Zugewiesen an"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_conversation_search
+msgid "Assigned to me"
+msgstr "Mir zugewiesen"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/composer.xml:0
+msgid "Attach a file"
+msgstr "Datei anhängen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__report_id
+msgid "Attach report"
+msgstr "Bericht anhängen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__attachment_id
+msgid "Attachment"
+msgstr "Anhang"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__attachment_ids
+msgid "Attachments"
+msgstr "Anhänge"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__attempts
+msgid "Attempts"
+msgstr "Versuche"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_message__kind__audio
+msgid "Audio"
+msgstr "Audio"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_template__category__authentication
+msgid "Authentication"
+msgstr "Authentifizierung"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__available_on_records
+msgid "Available On Records"
+msgstr "Auf Datensätzen verfügbar"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_template_form
+msgid "Back to draft"
+msgstr "Zurück auf Entwurf"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_conversation_form
+msgid "Blacklist number"
+msgstr "Nummer auf die Sperrliste setzen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.ui.menu,name:rcstudio_whatsapp_coexistence.menu_blacklist
+msgid "Blacklisted Numbers"
+msgstr "Nummern auf der Sperrliste"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__body
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__body
+msgid "Body"
+msgstr "Text"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__body_text
+msgid "Body Text"
+msgstr "Haupttext"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form
+msgid "Business Number"
+msgstr "Geschäftsnummer"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.actions.act_window,name:rcstudio_whatsapp_coexistence.action_number
+#: model:ir.ui.menu,name:rcstudio_whatsapp_coexistence.menu_numbers
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_list
+msgid "Business Numbers"
+msgstr "Geschäftsnummern"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/conversation_list.xml:0
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_conversation_search
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_message_search
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_template_search
+msgid "Business number"
+msgstr "Geschäftsnummer"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.res_config_settings_view_form
+msgid "Business numbers"
+msgstr "Geschäftsnummern"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__button_ids
+msgid "Button"
+msgstr "Schaltfläche"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_template_button__kind__phone_number
+msgid "Call"
+msgstr "Anrufen"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/map/location_dialog.xml:0
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_send_form
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/composer.xml:0
+msgid "Cancel reply"
+msgstr "Antwort abbrechen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__caption
+msgid "Caption"
+msgstr "Bildunterschrift"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__category
+msgid "Category"
+msgstr "Kategorie"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/wizard/send.py:0
+msgid "Choose a template."
+msgstr "Wählen Sie eine Vorlage."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/template.py:0
+msgid "Choose either a fixed header file or a report, not both."
+msgstr ""
+"Wählen Sie entweder eine feste Kopfzeilendatei oder einen Bericht, nicht "
+"beides."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/coexistence.py:0
+#: code:addons/rcstudio_whatsapp_coexistence/models/number.py:0
+msgid "Choose how the coexistence number is onboarded."
+msgstr "Wählen Sie, wie die Coexistence-Nummer eingebunden wird."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/conversation_list.xml:0
+msgid "Clear"
+msgstr "Leeren"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/map/map_picker.xml:0
+msgid "Click on the map or drag the marker to set the point."
+msgstr ""
+"Klicken Sie auf die Karte oder ziehen Sie die Markierung, um den Punkt "
+"festzulegen."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/thread.xml:0
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_conversation_form
+msgid "Close"
+msgstr "Schließen"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/conversation_list.js:0
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/thread.xml:0
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_conversation__state__closed
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_conversation_search
+msgid "Closed"
+msgstr "Geschlossen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form_coexistence
+msgid "Coexistence"
+msgstr "Coexistence"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_number__connection_mode__coexistence
+msgid "Coexistence (the number stays on the phone)"
+msgstr "Coexistence (die Nummer bleibt auf dem Telefon)"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__coexistence_status
+msgid "Coexistence Log"
+msgstr "Coexistence-Protokoll"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/coexistence.py:0
+msgid "Coexistence diagnosis"
+msgstr "Coexistence-Diagnose"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__provider
+msgid ""
+"Coexistence is onboarded with Meta's Embedded Signup, which only works "
+"through an app approved by Meta as a Tech Provider for WhatsApp Business App"
+" Onboarding. Use RC Studio's app with a licence key, or your own approved "
+"app."
+msgstr ""
+"Coexistence wird über Metas Embedded Signup eingebunden, das nur über eine "
+"von Meta als Tech Provider für WhatsApp Business App Onboarding zugelassene "
+"App funktioniert. Verwenden Sie die App von RC Studio mit einem "
+"Lizenzschlüssel oder Ihre eigene zugelassene App."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_res_config_settings__rcs_whatsapp_sync_contacts
+msgid ""
+"Coexistence: create a contact for each phone contact Meta sends during the "
+"one-time sync, when no contact with that number exists yet."
+msgstr ""
+"Coexistence: Für jeden Telefonkontakt, den Meta während der einmaligen "
+"Synchronisierung sendet, einen Kontakt anlegen, wenn noch kein Kontakt mit "
+"dieser Nummer existiert."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.res_config_settings_view_form
+msgid ""
+"Coexistence: create a contact for each phone contact Meta sends during the "
+"one-time sync."
+msgstr ""
+"Coexistence: Für jeden Telefonkontakt, den Meta während der einmaligen "
+"Synchronisierung sendet, einen Kontakt anlegen."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__color
+msgid "Color"
+msgstr "Farbe"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_res_config_settings__rcs_whatsapp_opt_out_words
+msgid "Comma separated. A customer who replies one of these is blacklisted."
+msgstr ""
+"Durch Kommas getrennt. Ein Kunde, der mit einem davon antwortet, wird auf "
+"die schwarze Liste gesetzt."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_param__component
+msgid "Component"
+msgstr "Komponente"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__components
+msgid "Components"
+msgstr "Komponenten"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model,name:rcstudio_whatsapp_coexistence.model_res_config_settings
+msgid "Config Settings"
+msgstr "Konfigurationseinstellungen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.ui.menu,name:rcstudio_whatsapp_coexistence.menu_configuration
+msgid "Configuration"
+msgstr "Konfiguration"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.res_config_settings_view_form
+msgid "Connect a dedicated Cloud API number or a coexistence number."
+msgstr ""
+"Verbinden Sie eine dedizierte Cloud-API-Nummer oder eine Coexistence-Nummer."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form_coexistence
+msgid "Connect via Coexistence"
+msgstr "Über Coexistence verbinden"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.actions.act_window,help:rcstudio_whatsapp_coexistence.action_number
+msgid "Connect your first WhatsApp number"
+msgstr "Verbinden Sie Ihre erste WhatsApp-Nummer"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_number__status__connected
+msgid "Connected"
+msgstr "Verbunden"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/number.py:0
+msgid "Connected. Meta reports %s as %s."
+msgstr "Verbunden. Meta meldet %s als %s."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form
+msgid "Connection"
+msgstr "Verbindung"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__connection_mode
+msgid "Connection Mode"
+msgstr "Verbindungsmodus"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:res.groups,comment:rcstudio_whatsapp_coexistence.group_manager
+msgid ""
+"Connects business numbers, manages templates and settings, and sees every "
+"conversation."
+msgstr ""
+"Verbindet Geschäftsnummern, verwaltet Vorlagen und Einstellungen und sieht "
+"jede Konversation."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/thread.xml:0
+#: model:ir.model,name:rcstudio_whatsapp_coexistence.model_res_partner
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__partner_id
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__partner_id
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__partner_id
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/message.xml:0
+msgid "Contact card"
+msgstr "Kontaktkarte"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_message__kind__contacts
+msgid "Contacts"
+msgstr "Kontakte"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.res_config_settings_view_form
+msgid "Contacts from the phone"
+msgstr "Kontakte vom Telefon"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_template_form
+msgid "Content"
+msgstr "Inhalt"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation_link__conversation_id
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__conversation_id
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__conversation_ids
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__conversation_id
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_conversation_form
+msgid "Conversation"
+msgstr "Konversation"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__conversation_count
+msgid "Conversation Count"
+msgstr "Anzahl Konversationen"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/number.py:0
+#: model:ir.actions.act_window,name:rcstudio_whatsapp_coexistence.action_conversation
+#: model:ir.ui.menu,name:rcstudio_whatsapp_coexistence.menu_conversations
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_conversation_list
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form
+msgid "Conversations"
+msgstr "Konversationen"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/inbox_action.xml:0
+msgid ""
+"Conversations appear here as soon as a customer writes to one of your "
+"business numbers."
+msgstr ""
+"Konversationen erscheinen hier, sobald ein Kunde an eine Ihrer "
+"Geschäftsnummern schreibt."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_template_button__kind__copy_code
+msgid "Copy code"
+msgstr "Code kopieren"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/coexistence.py:0
+msgid "Could not open the connection session: %s"
+msgstr "Die Verbindungssitzung konnte nicht geöffnet werden: %s"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/number.py:0
+msgid "Could not read the templates from Meta: %s"
+msgstr "Die Vorlagen konnten nicht von Meta gelesen werden: %s"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_res_config_settings__rcs_whatsapp_sync_contacts
+msgid "Create contacts from the phone"
+msgstr "Kontakte vom Telefon anlegen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form
+msgid ""
+"Create draft utility templates for the apps installed, mapped to their "
+"records and reports."
+msgstr ""
+"Erstellt Entwürfe von Utility-Vorlagen für die installierten Apps, "
+"zugeordnet zu ihren Datensätzen und Berichten."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__create_uid
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation_link__create_uid
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__create_uid
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__create_uid
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__create_uid
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send_param__create_uid
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__create_uid
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_button__create_uid
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_param__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__create_date
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation_link__create_date
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__create_date
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__create_date
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__create_date
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send_param__create_date
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__create_date
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_button__create_date
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_param__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form
+msgid "Credentials"
+msgstr "Zugangsdaten"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/message.js:0
+msgid "Customer"
+msgstr "Kunde"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__date
+msgid "Date"
+msgstr "Datum"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/message.js:0
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_message__status__delivered
+msgid "Delivered"
+msgstr "Zugestellt"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form_coexistence
+msgid "Diagnose"
+msgstr "Diagnose ausführen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__direction
+msgid "Direction"
+msgstr "Richtung"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_template__status__disabled
+msgid "Disabled"
+msgstr "Deaktiviert"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/composer.xml:0
+msgid "Discard"
+msgstr "Verwerfen"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/composer.xml:0
+msgid "Discard the recording"
+msgstr "Aufnahme verwerfen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form_coexistence
+msgid "Disconnect"
+msgstr "Trennen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form_coexistence
+msgid ""
+"Disconnect this number? Odoo forgets the token and stops receiving its "
+"messages. The number keeps working on the phone; connect it again with a new"
+" QR code whenever you want."
+msgstr ""
+"Diese Nummer trennen? Odoo verwirft das Token und empfängt ihre Nachrichten "
+"nicht mehr. Die Nummer funktioniert weiterhin auf dem Telefon; verbinden Sie"
+" sie jederzeit erneut mit einem neuen QR-Code."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__display_name
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation_link__display_name
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__display_name
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__display_name
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__display_name
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send_param__display_name
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__display_name
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_button__display_name
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_param__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_message__kind__document
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_template__header_format__document
+msgid "Document"
+msgstr "Dokument"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/thread.xml:0
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__link_ids
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_conversation_form
+msgid "Documents"
+msgstr "Dokumente"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/thread.xml:0
+msgid "Documents this customer was written to from"
+msgstr "Dokumente, aus denen diesem Kunden geschrieben wurde"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_param__field_path
+msgid "Dotted path on the record, e.g. partner_id.name or amount_total."
+msgstr "Punktpfad auf dem Datensatz, z. B. partner_id.name oder amount_total."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_template__status__draft
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_template_search
+msgid "Draft"
+msgstr "Entwurf"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/composer.xml:0
+msgid "Emoji"
+msgstr "Emoji"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_number__status__error
+msgid "Error"
+msgstr "Fehler"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__error_code
+msgid "Error Code"
+msgstr "Fehlercode"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__error_message
+msgid "Error Message"
+msgstr "Fehlermeldung"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/library.py:0
+msgid ""
+"Every sample template that fits this database already exists on this number."
+msgstr ""
+"Jede zu dieser Datenbank passende Beispielvorlage existiert bereits auf "
+"dieser Nummer."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_message__status__failed
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_message_search
+msgid "Failed"
+msgstr "Fehlgeschlagen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_param__field_path
+msgid "Field Path"
+msgstr "Feldpfad"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_template_param__source__field
+msgid "Field of the record"
+msgstr "Feld des Datensatzes"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__record_ref
+msgid "Fill from"
+msgstr "Befüllen aus"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_param__fixed_value
+msgid "Fixed Value"
+msgstr "Fester Wert"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_template_param__source__fixed
+msgid "Fixed text"
+msgstr "Fester Text"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__footer_text
+msgid "Footer Text"
+msgstr "Fußzeilentext"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_send__mode__text
+msgid "Free text (inside the 24-hour window)"
+msgstr "Freitext (innerhalb des 24-Stunden-Fensters)"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/wizard/send.py:0
+msgid "Free text can only be sent to a single recipient."
+msgstr "Freitext kann nur an einen einzelnen Empfänger gesendet werden."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/thread.xml:0
+msgid ""
+"Free-form replies are only allowed within 24 hours of the customer's last "
+"message. Send an approved template to reopen the conversation."
+msgstr ""
+"Freie Antworten sind nur innerhalb von 24 Stunden nach der letzten Nachricht"
+" des Kunden erlaubt. Senden Sie eine genehmigte Vorlage, um die Konversation"
+" wieder zu öffnen."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__number_id
+msgid "From"
+msgstr "Von"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_res_config_settings__rcs_whatsapp_graph_version
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.res_config_settings_view_form
+msgid "Graph API version"
+msgstr "Graph-API-Version"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__template_header_format
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__header_format
+msgid "Header Format"
+msgstr "Kopfzeilenformat"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__header_text
+msgid "Header Text"
+msgstr "Kopfzeilentext"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__header_attachment_id
+msgid "Header file"
+msgstr "Kopfzeilendatei"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_template_form
+msgid "Hello {{1}}, your order {{2}} is confirmed."
+msgstr "Hallo {{1}}, Ihre Bestellung {{2}} ist bestätigt."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__signup_url
+msgid "Hosted page of the current signup session (RC Studio service)."
+msgstr ""
+"Gehostete Seite der aktuellen Registrierungssitzung (RC Studio-Dienst)."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__webhook_delivery
+msgid ""
+"How Meta's deliveries reach this Odoo. The module always asks for direct "
+"delivery, so no message passes through RC Studio, which only takes part in "
+"the connection. Numbers connected with an older version stay on the relay "
+"until they are connected again; that is the only case where this reads "
+"otherwise."
+msgstr ""
+"Wie die Zustellungen von Meta dieses Odoo erreichen. Das Modul fordert immer"
+" die direkte Zustellung an, sodass keine Nachricht über RC Studio läuft, das"
+" nur an der Verbindung beteiligt ist. Nummern, die mit einer älteren Version"
+" verbunden wurden, bleiben auf dem Relais, bis sie erneut verbunden werden; "
+"nur dann steht hier etwas anderes."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__id
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation_link__id
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__id
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__id
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__id
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send_param__id
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__id
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_button__id
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_param__id
+msgid "ID"
+msgstr "ID"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__icon
+msgid "Icon"
+msgstr "Symbol"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_message__kind__image
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_template__header_format__image
+msgid "Image"
+msgstr "Bild"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__reply_to_id
+msgid "In reply to"
+msgstr "Als Antwort auf"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_message__direction__in
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_message_search
+msgid "Inbound"
+msgstr "Eingehend"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.actions.client,name:rcstudio_whatsapp_coexistence.action_inbox
+#: model:ir.ui.menu,name:rcstudio_whatsapp_coexistence.menu_inbox
+msgid "Inbox"
+msgstr "Posteingang"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_message__kind__interactive
+msgid "Interactive reply"
+msgstr "Interaktive Antwort"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__is_echo
+msgid "Is Echo"
+msgstr "Ist Echo"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__is_library
+msgid "Is Library"
+msgstr "Aus Bibliothek"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__res_ids
+msgid "JSON list of record ids"
+msgstr "JSON-Liste von Datensatz-IDs"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__kind
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_button__kind
+msgid "Kind"
+msgstr "Art"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send_param__label
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__label
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_param__label
+msgid "Label"
+msgstr "Bezeichnung"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__language
+msgid "Language"
+msgstr "Sprache"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__last_activity
+msgid "Last Activity"
+msgstr "Letzte Aktivität"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__last_check
+msgid "Last Check"
+msgstr "Letzte Prüfung"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__last_inbound_at
+msgid "Last Inbound At"
+msgstr "Letzter Eingang am"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__last_message_id
+msgid "Last Message"
+msgstr "Letzte Nachricht"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__last_message_preview
+msgid "Last Message Preview"
+msgstr "Vorschau der letzten Nachricht"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__write_uid
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation_link__write_uid
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__write_uid
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__write_uid
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__write_uid
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send_param__write_uid
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__write_uid
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_button__write_uid
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_param__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__write_date
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation_link__write_date
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__write_date
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__write_date
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__write_date
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send_param__write_date
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__write_date
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_button__write_date
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_param__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/map/location_field.xml:0
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__latitude
+msgid "Latitude"
+msgstr "Breitengrad"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__company_ids
+msgid "Leave empty to make the number available in every company."
+msgstr "Leer lassen, damit die Nummer in jedem Unternehmen verfügbar ist."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__link_count
+msgid "Link Count"
+msgstr "Anzahl Verknüpfungen"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/thread.xml:0
+msgid "Load older messages"
+msgstr "Ältere Nachrichten laden"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form
+msgid "Load sample templates"
+msgstr "Beispielvorlagen laden"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__is_library
+msgid "Loaded from the sample library."
+msgstr "Aus der Beispielbibliothek geladen."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/message.py:0
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_message__kind__location
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_template__header_format__location
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_message_form
+msgid "Location"
+msgstr "Standort"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__location_address
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__location_address
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__location_address
+msgid "Location Address"
+msgstr "Standortadresse"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__location_latitude
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__location_latitude
+msgid "Location Latitude"
+msgstr "Breitengrad des Standorts"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__location_longitude
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__location_longitude
+msgid "Location Longitude"
+msgstr "Längengrad des Standorts"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__location_name
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__location_name
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__location_name
+msgid "Location Name"
+msgstr "Standortname"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_template_form
+msgid "Location header"
+msgstr "Standort-Kopfzeile"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/map/location_field.js:0
+msgid "Location on a map"
+msgstr "Standort auf einer Karte"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_send_form
+msgid "Location to send"
+msgstr "Zu sendender Standort"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form_coexistence
+msgid "Log"
+msgstr "Protokoll"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__login_config_id
+msgid "Login Configuration ID"
+msgstr "Login Configuration ID"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/map/location_field.xml:0
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__longitude
+msgid "Longitude"
+msgstr "Längengrad"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__name
+msgid "Lowercase letters, digits and underscores, as Meta requires."
+msgstr "Kleinbuchstaben, Ziffern und Unterstriche, wie von Meta gefordert."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.res_config_settings_view_form
+msgid "Manage numbers"
+msgstr "Nummern verwalten"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:res.groups,name:rcstudio_whatsapp_coexistence.group_manager
+msgid "Manager"
+msgstr "Manager"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_template__category__marketing
+msgid "Marketing"
+msgstr "Marketing"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_button__url
+msgid "May end with {{1}} for a part filled per record."
+msgstr ""
+"Kann mit {{1}} enden für einen Teil, der pro Datensatz ausgefüllt wird."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/message.xml:0
+msgid "Media unavailable"
+msgstr "Medium nicht verfügbar"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__message_ids
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_message_form
+msgid "Message"
+msgstr "Nachricht"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.actions.act_window,name:rcstudio_whatsapp_coexistence.action_message
+#: model:ir.ui.menu,name:rcstudio_whatsapp_coexistence.menu_messages
+msgid "Message Log"
+msgstr "Nachrichtenprotokoll"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/inbox_store.js:0
+msgid "Message not sent"
+msgstr "Nachricht nicht gesendet"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_conversation_form
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_message_list
+msgid "Messages"
+msgstr "Nachrichten"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/message.py:0
+msgid "Messages of type %s cannot be sent."
+msgstr "Nachrichten vom Typ %s können nicht gesendet werden."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/thread.xml:0
+msgid "Messages to this number will not be sent."
+msgstr "Nachrichten an diese Nummer werden nicht gesendet."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__wa_message_id
+msgid "Meta Message ID"
+msgstr "Meta-Nachrichten-ID"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__meta_template_id
+msgid "Meta Template"
+msgstr "Meta-Vorlage"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/template.py:0
+msgid "Meta allows at most ten buttons."
+msgstr "Meta erlaubt höchstens zehn Schaltflächen."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form_coexistence
+msgid ""
+"Meta allows each sync once per onboarding: the phone's contacts and the last 6 months of\n"
+"                        conversations arrive over the webhook during the minutes after the connection. To run a\n"
+"                        sync again, disconnect the number and connect it with a new QR code."
+msgstr ""
+"Meta erlaubt jede Synchronisierung nur einmal pro Onboarding: Die Kontakte des Telefons und die Konversationen der\n"
+"                        letzten 6 Monate treffen in den Minuten nach der Verbindung über den Webhook ein. Um eine\n"
+"                        Synchronisierung erneut auszuführen, trennen Sie die Nummer und verbinden Sie sie mit einem neuen QR-Code."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form
+msgid "Meta app"
+msgstr "Meta-App"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form
+msgid ""
+"Meta delivers straight to this Odoo: no message passes through RC Studio, which only\n"
+"                                took part in the connection. Meta signs with the App Secret of RC Studio's app, which\n"
+"                                is not here, so the signature cannot be checked and the secret token in the URL is what\n"
+"                                guards the endpoint. Deliveries addressed to another business account or another number\n"
+"                                are dropped. If the URL is ever exposed, rotate the token."
+msgstr ""
+"Meta stellt direkt an dieses Odoo zu: Keine Nachricht läuft über RC Studio, "
+"das nur an der Verbindung beteiligt war. Meta signiert mit dem App Secret "
+"der App von RC Studio, das hier nicht vorliegt, daher kann die Signatur "
+"nicht geprüft werden, und den Endpunkt schützt das geheime Token in der URL."
+" Zustellungen an ein anderes Unternehmenskonto oder eine andere Nummer "
+"werden verworfen. Falls die URL bekannt wird, erneuern Sie das Token."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/wizard/send.py:0
+msgid "Meta did not accept the message: %s"
+msgstr "Meta hat die Nachricht nicht akzeptiert: %s"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/coexistence.py:0
+msgid "Meta did not return an access token."
+msgstr "Meta hat kein Zugriffstoken zurückgegeben."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_template_form
+msgid "Meta payload"
+msgstr "Meta-Payload"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/coexistence.py:0
+msgid "Meta refused the %(label)s sync: %(error)s"
+msgstr "Meta hat die Synchronisierung %(label)s abgelehnt: %(error)s"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/template.py:0
+msgid "Meta refused the template: %s"
+msgstr "Meta hat die Vorlage abgelehnt: %s"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/number.py:0
+msgid "Meta refused the webhook subscription: %s"
+msgstr "Meta hat das Webhook-Abonnement abgelehnt: %s"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/coexistence.py:0
+msgid "Meta refused to exchange the code for a token: %s"
+msgstr "Meta hat den Austausch des Codes gegen ein Token abgelehnt: %s"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/number.py:0
+msgid "Meta refused: %s"
+msgstr "Meta hat abgelehnt: %s"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/coexistence.py:0
+msgid "Meta rejected the credentials of this number: %s"
+msgstr "Meta hat die Zugangsdaten dieser Nummer abgelehnt: %s"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/number.py:0
+msgid "Meta rejected the credentials: %s"
+msgstr "Meta hat die Zugangsdaten abgelehnt: %s"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/message.py:0
+msgid "Meta reported a failure"
+msgstr "Meta hat einen Fehler gemeldet"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form
+msgid "Meta reports"
+msgstr "Meta meldet"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/number.py:0
+msgid "Meta will deliver this number’s events to %s"
+msgstr "Meta wird die Ereignisse dieser Nummer an %s zustellen"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/template.py:0
+msgid ""
+"Meta will reject template %(name)s: %(problems)s. A variable must be "
+"surrounded by text; add a word before or after it and try again."
+msgstr ""
+"Meta wird die Vorlage %(name)s ablehnen: %(problems)s. Eine Variable muss "
+"von Text umgeben sein; fügen Sie davor oder danach ein Wort ein und "
+"versuchen Sie es erneut."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/coexistence.py:0
+msgid "Meta will send the %s over the webhook during the next minutes."
+msgstr "Meta sendet %s in den nächsten Minuten über den Webhook."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/coexistence.py:0
+msgid ""
+"Meta's dialog did not return the code, the WhatsApp Business Account ID and "
+"the Phone Number ID. Try again and finish the dialog."
+msgstr ""
+"Der Meta-Dialog hat den Code, die WhatsApp Business Account ID und die Phone"
+" Number ID nicht zurückgegeben. Versuchen Sie es erneut und schließen Sie "
+"den Dialog ab."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__language
+msgid "Meta's language code: en_US, es, es_ES, fr, de, pt_BR..."
+msgstr "Sprachcode von Meta: en_US, es, es_ES, fr, de, pt_BR..."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__mime_type
+msgid "Mime Type"
+msgstr "MIME-Typ"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/conversation_list.js:0
+msgid "Mine"
+msgstr "Meine"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__mode
+msgid "Mode"
+msgstr "Modus"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation_link__model
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__model
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__template_model_name
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__model_name
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_param__model_name
+msgid "Model"
+msgstr "Modell"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__name
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__filename
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__name
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__name
+msgid "Name"
+msgstr "Name"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/inbox_store.js:0
+msgid "New message"
+msgstr "Neue Nachricht"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/number.py:0
+msgid "New webhook URL: %s"
+msgstr "Neue Webhook-URL: %s"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__next_attempt
+msgid "Next Attempt"
+msgstr "Nächster Versuch"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/conversation_list.js:0
+msgid "No closed conversations."
+msgstr "Keine geschlossenen Konversationen."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/conversation_list.js:0
+msgid "No conversation is assigned to you."
+msgstr "Ihnen ist keine Konversation zugewiesen."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/conversation_list.js:0
+msgid "No conversation matches \"%s\"."
+msgstr "Keine Konversation passt zu \"%s\"."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/conversation_list.js:0
+msgid "No conversations yet."
+msgstr "Noch keine Konversationen."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/thread.xml:0
+msgid "No messages yet."
+msgstr "Noch keine Nachrichten."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/map/map_picker.js:0
+msgid "No place found for that address."
+msgstr "Für diese Adresse wurde kein Ort gefunden."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/map/location_dialog.xml:0
+msgid "No point selected yet."
+msgstr "Noch kein Punkt ausgewählt."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.actions.act_window,help:rcstudio_whatsapp_coexistence.action_template
+msgid "No templates yet"
+msgstr "Noch keine Vorlagen"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/conversation_list.js:0
+msgid "No unread conversations."
+msgstr "Keine ungelesenen Konversationen."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/wizard/send.py:0
+msgid "No valid phone number to send to."
+msgstr "Keine gültige Telefonnummer zum Senden."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/wizard/send.py:0
+msgid "No valid phone number was found."
+msgstr "Es wurde keine gültige Telefonnummer gefunden."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_template__header_format__none
+msgid "None"
+msgstr "Keine"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_number__status__draft
+msgid "Not connected"
+msgstr "Nicht verbunden"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_conversation_form
+msgid ""
+"Nothing will be sent to this number until it is removed from the blacklist. "
+"Continue?"
+msgstr ""
+"An diese Nummer wird nichts gesendet, solange sie auf der Sperrliste steht. "
+"Fortfahren?"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__number_id
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__number_id
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__number_id
+msgid "Number"
+msgstr "Nummer"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.res_config_settings_view_form
+msgid "Numbers"
+msgstr "Nummern"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/coexistence/coexistence_window.js:0
+msgid "Odoo could not be reached."
+msgstr "Odoo konnte nicht erreicht werden."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__available_on_records
+msgid "Offer this template in the Send by WhatsApp action."
+msgstr "Diese Vorlage in der Aktion „Per WhatsApp senden“ anbieten."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__is_on_biz_app
+msgid "On the WhatsApp Business app"
+msgstr "In der WhatsApp Business App"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__provider
+msgid "Onboarding through"
+msgstr "Onboarding über"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form_coexistence
+msgid "One-time syncs"
+msgstr "Einmalige Synchronisierungen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_conversation__state__open
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_conversation_form
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_conversation_search
+msgid "Open"
+msgstr "Offen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_conversation_form
+msgid "Open in inbox"
+msgstr "Im Posteingang öffnen"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/thread.xml:0
+msgid "Open the contact"
+msgstr "Kontakt öffnen"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/coexistence/coexistence_window.js:0
+msgid "Open the onboarding window"
+msgstr "Onboarding-Fenster öffnen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:res.groups,name:rcstudio_whatsapp_coexistence.group_user
+msgid "Operator"
+msgstr "Bearbeiter"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__user_ids
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form
+msgid "Operators"
+msgstr "Bearbeiter"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_res_config_settings__rcs_whatsapp_opt_out_words
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.res_config_settings_view_form
+msgid "Opt-out words"
+msgstr "Abmeldewörter"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__opted_out
+msgid "Opted Out"
+msgstr "Abgemeldet"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__origin_model
+msgid "Origin Model"
+msgstr "Ursprungsmodell"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__origin_res_id
+msgid "Origin Res"
+msgstr "Ursprungsdatensatz"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_message__direction__out
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_message_search
+msgid "Outbound"
+msgstr "Ausgehend"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send_param__param_id
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__param_ids
+msgid "Param"
+msgstr "Parameter"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/coexistence.py:0
+msgid "Paste the RC Studio licence key on this number first."
+msgstr "Fügen Sie zuerst den RC Studio-Lizenzschlüssel bei dieser Nummer ein."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form
+msgid ""
+"Paste the licence key you received from RC Studio and press <b>Connect via Coexistence</b>.\n"
+"                        The App ID, the token and the number details are filled in automatically once the QR code is scanned."
+msgstr ""
+"Fügen Sie den von RC Studio erhaltenen Lizenzschlüssel ein und klicken Sie auf <b>Über Coexistence verbinden</b>.\n"
+"                        App ID, Token und die Details der Nummer werden automatisch ausgefüllt, sobald der QR-Code gescannt wurde."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_template__status__paused
+msgid "Paused"
+msgstr "Pausiert"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_template__status__pending
+msgid "Pending review"
+msgstr "Prüfung ausstehend"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__phone
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__phone
+msgid "Phone"
+msgstr "Telefon"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__phone_display
+msgid "Phone Display"
+msgstr "Angezeigte Telefonnummer"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__display_phone
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_button__phone_number
+msgid "Phone Number"
+msgstr "Telefonnummer"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__phone_number_id
+msgid "Phone Number ID"
+msgstr "Phone Number ID"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__phone_wa
+msgid "Phone Wa"
+msgstr "WhatsApp-Telefonnummer"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/inbox_action.xml:0
+msgid "Pick a conversation to start replying."
+msgstr "Wählen Sie eine Konversation, um zu antworten."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/wizard/send.py:0
+msgid "Pick the %s to fill the template from."
+msgstr "Wählen Sie den %s, aus dem die Vorlage befüllt wird."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/map/location_dialog.xml:0
+msgid "Place name (optional)"
+msgstr "Name des Orts (optional)"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_param__placeholder
+msgid "Placeholder"
+msgstr "Platzhalter"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/template.py:0
+msgid "Placeholder %s needs a field path."
+msgstr "Platzhalter %s benötigt einen Feldpfad."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__placeholder_count
+msgid "Placeholder Count"
+msgstr "Anzahl Platzhalter"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__placeholder_summary
+msgid "Placeholder Summary"
+msgstr "Platzhalterübersicht"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_template_form
+msgid "Placeholders"
+msgstr "Platzhalter"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__platform_type
+msgid "Platform Type"
+msgstr "Plattformtyp"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/template.py:0
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_send_form
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_template_form
+msgid "Preview"
+msgstr "Vorschau"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__preview_text
+msgid "Preview Text"
+msgstr "Vorschautext"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/wizard/send.py:0
+msgid "Preview unavailable: %s"
+msgstr "Vorschau nicht verfügbar: %s"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__profile_name
+msgid "Profile Name"
+msgstr "Profilname"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__quality
+msgid "Quality"
+msgstr "Qualität"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__quality_rating
+msgid "Quality Rating"
+msgstr "Qualitätsbewertung"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/message.js:0
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_message__status__queued
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_message_search
+msgid "Queued"
+msgstr "In Warteschlange"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_template_button__kind__quick_reply
+msgid "Quick reply"
+msgstr "Schnellantwort"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__licence_key
+msgid "RC Studio Licence"
+msgstr "RC Studio-Lizenz"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form
+msgid "RC Studio licence"
+msgstr "RC Studio-Lizenz"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_res_config_settings__rcs_whatsapp_broker_url
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.res_config_settings_view_form
+msgid "RC Studio service URL"
+msgstr "URL des RC Studio-Dienstes"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/coexistence.py:0
+msgid "RC Studio will relay this number’s events to %s"
+msgstr "RC Studio wird die Ereignisse dieser Nummer an %s weiterleiten"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_number__provider__rcstudio
+msgid "RC Studio's Tech Provider service (licence key)"
+msgstr "Tech-Provider-Dienst von RC Studio (Lizenzschlüssel)"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_res_partner__rcs_whatsapp_conversation_ids
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_res_users__rcs_whatsapp_conversation_ids
+msgid "Rcs Whatsapp Conversation"
+msgstr "WhatsApp-Konversation"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_res_partner__rcs_whatsapp_conversation_count
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_res_users__rcs_whatsapp_conversation_count
+msgid "Rcs Whatsapp Conversation Count"
+msgstr "Anzahl WhatsApp-Konversationen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_message__kind__reaction
+msgid "Reaction"
+msgstr "Reaktion"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__reaction_emoji
+msgid "Reaction Emoji"
+msgstr "Reaktions-Emoji"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__reaction_to_id
+msgid "Reaction To"
+msgstr "Reaktion auf"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/message.js:0
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_message__status__read
+msgid "Read"
+msgstr "Gelesen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__read_at
+msgid "Read At"
+msgstr "Gelesen am"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.res_config_settings_view_form
+msgid "Read receipts"
+msgstr "Lesebestätigungen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_message__status__received
+msgid "Received"
+msgstr "Empfangen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_send_form
+msgid "Record"
+msgstr "Datensatz"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__record_count
+msgid "Record Count"
+msgstr "Anzahl Datensätze"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__record_name
+msgid "Record Name"
+msgstr "Datensatzname"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/composer.xml:0
+msgid "Record a voice note"
+msgstr "Sprachnachricht aufnehmen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_template_param__source__portal_url
+msgid "Record's portal link"
+msgstr "Portallink des Datensatzes"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__is_voice
+msgid "Recorded and played as a voice message, not sent as an audio file."
+msgstr ""
+"Wird als Sprachnachricht aufgenommen und abgespielt, nicht als Audiodatei "
+"gesendet."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/composer.xml:0
+msgid "Recording a voice note"
+msgstr "Sprachnachricht wird aufgenommen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_send_form
+msgid "Records"
+msgstr "Datensätze"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_template_form
+msgid "Refresh status"
+msgstr "Status aktualisieren"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_template__status__rejected
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_template_form
+msgid "Rejected"
+msgstr "Abgelehnt"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__rejection_reason
+msgid "Rejection Reason"
+msgstr "Ablehnungsgrund"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/composer.xml:0
+msgid "Remove attachment"
+msgstr "Anhang entfernen"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/thread.xml:0
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_conversation_form
+msgid "Remove from blacklist"
+msgstr "Von der Sperrliste entfernen"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/conversation.py:0
+msgid "Removed from the WhatsApp conversation"
+msgstr "Aus der WhatsApp-Konversation entfernt"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__report_id
+msgid "Rendered as PDF for the record and sent as the document header."
+msgstr ""
+"Wird als PDF für den Datensatz erzeugt und als Dokumentkopfzeile gesendet."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/thread.xml:0
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_conversation_form
+msgid "Reopen"
+msgstr "Wieder öffnen"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/message.xml:0
+msgid "Reply"
+msgstr "Antworten"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation_link__res_id
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__res_ids
+msgid "Res"
+msgstr "Datensatz"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form
+msgid "Rotate the token"
+msgstr "Token erneuern"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/conversation_list.xml:0
+msgid "Search"
+msgstr "Suchen"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/map/map_picker.xml:0
+msgid "Search an address..."
+msgstr "Adresse suchen ..."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__webhook_secret
+msgid ""
+"Secret the RC Studio relay signs deliveries with. With your own app, Meta "
+"signs with the App Secret instead."
+msgstr ""
+"Geheimnis, mit dem das RC Studio-Relay Zustellungen signiert. Mit Ihrer "
+"eigenen App signiert Meta stattdessen mit dem App Secret."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/composer.xml:0
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/map/location_dialog.xml:0
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send_param__send_id
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_send_form
+msgid "Send"
+msgstr "Senden"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__ir_actions_server__state__rcs_whatsapp
+msgid "Send WhatsApp template"
+msgstr "WhatsApp-Vorlage senden"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/chatter/chatter_patch.xml:0
+msgid "Send a WhatsApp template from this record"
+msgstr "Eine WhatsApp-Vorlage aus diesem Datensatz senden"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/composer.xml:0
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/map/location_dialog.js:0
+msgid "Send a location"
+msgstr "Standort senden"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/composer.xml:0
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/thread.xml:0
+msgid "Send a template"
+msgstr "Vorlage senden"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/composer.xml:0
+msgid ""
+"Send a template, optionally filled from a quotation, invoice, delivery..."
+msgstr ""
+"Eine Vorlage senden, optional befüllt aus einem Angebot, einer Rechnung, "
+"einer Lieferung ..."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_message_form
+msgid "Send again"
+msgstr "Erneut senden"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/phone_field/phone_field.xml:0
+#: model:ir.actions.act_window,name:rcstudio_whatsapp_coexistence.action_send
+#: model:ir.actions.act_window,name:rcstudio_whatsapp_coexistence.binding_account_move
+#: model:ir.actions.act_window,name:rcstudio_whatsapp_coexistence.binding_res_partner
+#: model:ir.actions.act_window,name:rcstudio_whatsapp_coexistence.binding_sale_order
+#: model:ir.model,name:rcstudio_whatsapp_coexistence.model_rcs_whatsapp_send
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_send_form
+msgid "Send by WhatsApp"
+msgstr "Per WhatsApp senden"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model,name:rcstudio_whatsapp_coexistence.model_rcs_whatsapp_send_param
+msgid "Send by WhatsApp: asked value"
+msgstr "Per WhatsApp senden: abgefragter Wert"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_res_config_settings__rcs_whatsapp_auto_read
+msgid "Send read receipts"
+msgstr "Lesebestätigungen senden"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/composer.xml:0
+msgid "Send the voice note"
+msgstr "Sprachnachricht senden"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/message.js:0
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_message__status__sending
+msgid "Sending"
+msgstr "Wird gesendet"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/message.js:0
+msgid "Sending failed"
+msgstr "Senden fehlgeschlagen"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/wizard/send.py:0
+msgid "Sending to several records needs a template."
+msgstr "Das Senden an mehrere Datensätze erfordert eine Vorlage."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/message.js:0
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_message__status__sent
+msgid "Sent"
+msgstr "Gesendet"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__author_user_id
+msgid "Sent by"
+msgstr "Gesendet von"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/message.xml:0
+msgid "Sent from the WhatsApp app on the phone"
+msgstr "Aus der WhatsApp-App auf dem Telefon gesendet"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__is_echo
+msgid "Sent from the phone (coexistence), mirrored here."
+msgstr "Vom Telefon gesendet (Coexistence), hier gespiegelt."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__sequence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_button__sequence
+msgid "Sequence"
+msgstr "Sequenz"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model,name:rcstudio_whatsapp_coexistence.model_ir_actions_server
+msgid "Server Action"
+msgstr "Serveraktion"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/coexistence.py:0
+msgid "Set the connection mode to Coexistence first."
+msgstr "Stellen Sie zuerst den Verbindungsmodus auf Coexistence."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.actions.act_window,name:rcstudio_whatsapp_coexistence.action_settings
+#: model:ir.ui.menu,name:rcstudio_whatsapp_coexistence.menu_settings
+msgid "Settings"
+msgstr "Einstellungen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__icon
+msgid "Shown on every conversation of this number in the inbox."
+msgstr "Wird bei jeder Konversation dieser Nummer im Posteingang angezeigt."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_param__label
+msgid "Shown to the sender when the value is asked for."
+msgstr "Wird dem Absender angezeigt, wenn der Wert abgefragt wird."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__signup_token
+msgid "Signup Session Token"
+msgstr "Token der Registrierungssitzung"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__signup_url
+msgid "Signup Session URL"
+msgstr "URL der Registrierungssitzung"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form_coexistence
+msgid "Signup session"
+msgstr "Registrierungssitzung"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_param__source
+msgid "Source"
+msgstr "Quelle"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__state
+msgid "State"
+msgstr "Status"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__status
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__status
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__status
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_message_search
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_template_search
+msgid "Status"
+msgstr "Status"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__status_message
+msgid "Status Message"
+msgstr "Statusmeldung"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_message__kind__sticker
+msgid "Sticker"
+msgstr "Sticker"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_number__webhook_delivery__direct
+msgid "Straight from Meta to this Odoo"
+msgstr "Direkt von Meta an dieses Odoo"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_send_form
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_template_form
+msgid "Street, city"
+msgstr "Straße, Stadt"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_template_form
+msgid "Submit to Meta"
+msgstr "Bei Meta einreichen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form
+msgid "Subscribe webhook"
+msgstr "Webhook abonnieren"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__sync_contacts_done
+msgid "Sync Contacts Done"
+msgstr "Kontaktsynchronisierung abgeschlossen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__sync_history_done
+msgid "Sync History Done"
+msgstr "Verlaufssynchronisierung abgeschlossen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form_coexistence
+msgid "Sync contacts"
+msgstr "Kontakte synchronisieren"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form_coexistence
+msgid "Sync history"
+msgstr "Verlauf synchronisieren"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form
+msgid "Sync templates"
+msgstr "Vorlagen synchronisieren"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.actions.act_window,help:rcstudio_whatsapp_coexistence.action_template
+msgid ""
+"Sync the templates of a connected number from Meta, or create one and submit"
+" it for approval."
+msgstr ""
+"Synchronisieren Sie die Vorlagen einer verbundenen Nummer von Meta oder "
+"erstellen Sie eine und reichen Sie sie zur Genehmigung ein."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_message__kind__system
+msgid "System"
+msgstr "System"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_res_config_settings__rcs_whatsapp_auto_read
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.res_config_settings_view_form
+msgid ""
+"Tell Meta the customer's messages were read when an operator opens the "
+"conversation."
+msgstr ""
+"Meta mitteilen, dass die Nachrichten des Kunden gelesen wurden, wenn ein "
+"Bearbeiter die Konversation öffnet."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__template_id
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__template_ids
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__template_id
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_button__template_id
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_param__template_id
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_message__kind__template
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_send__mode__template
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_template_form
+msgid "Template"
+msgstr "Vorlage"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/template.py:0
+msgid ""
+"Template %s has a location header: set the point on the template or pick one"
+" when sending."
+msgstr ""
+"Die Vorlage %s hat eine Standort-Kopfzeile: Legen Sie den Punkt in der "
+"Vorlage fest oder wählen Sie beim Senden einen aus."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/wizard/send.py:0
+msgid "Template %s is filled from a %s: pick the record it applies to."
+msgstr ""
+"Die Vorlage %s wird aus einem %s befüllt: Wählen Sie den zugehörigen "
+"Datensatz."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/template.py:0
+msgid "Template %s is meant for %s, not for %s."
+msgstr "Die Vorlage %s ist für %s gedacht, nicht für %s."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__template_count
+msgid "Template Count"
+msgstr "Anzahl Vorlagen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__template_payload
+msgid "Template Payload"
+msgstr "Vorlagen-Payload"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/template.py:0
+msgid "Template names use lowercase letters, digits and underscores only."
+msgstr ""
+"Vorlagennamen verwenden nur Kleinbuchstaben, Ziffern und Unterstriche."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/message.xml:0
+msgid "Template:"
+msgstr "Vorlage:"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/number.py:0
+#: model:ir.actions.act_window,name:rcstudio_whatsapp_coexistence.action_template
+#: model:ir.ui.menu,name:rcstudio_whatsapp_coexistence.menu_templates
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_template_list
+msgid "Templates"
+msgstr "Vorlagen"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/number.py:0
+msgid "Templates refreshed from Meta."
+msgstr "Vorlagen von Meta aktualisiert."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form
+msgid "Test connection"
+msgstr "Verbindung testen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_button__text
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_message__kind__text
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_template__header_format__text
+msgid "Text"
+msgstr "Text"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/coexistence.py:0
+msgid ""
+"The %(label)s sync already ran on %(date)s. Meta allows one per onboarding: "
+"to run it again, disconnect the number and connect it again."
+msgstr ""
+"Die Synchronisierung %(label)s wurde bereits am %(date)s ausgeführt. Meta "
+"erlaubt eine pro Onboarding: Um sie erneut auszuführen, trennen Sie die "
+"Nummer und verbinden Sie sie erneut."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__login_config_id
+msgid ""
+"The 'Facebook Login for Business' configuration of your Tech Provider app."
+msgstr ""
+"Die Konfiguration 'Facebook Login for Business' Ihrer Tech-Provider-App."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/wizard/send.py:0
+msgid "The 24-hour window is closed for this number. Send a template instead."
+msgstr ""
+"Das 24-Stunden-Fenster ist für diese Nummer geschlossen. Senden Sie "
+"stattdessen eine Vorlage."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/thread.xml:0
+msgid "The 24-hour window is closed."
+msgstr "Das 24-Stunden-Fenster ist geschlossen."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/conversation.py:0
+msgid ""
+"The 24-hour window is closed. Send a template to reopen the conversation."
+msgstr ""
+"Das 24-Stunden-Fenster ist geschlossen. Senden Sie eine Vorlage, um die "
+"Konversation wieder zu öffnen."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/coexistence.py:0
+msgid "The RC Studio service did not run the %(label)s sync: %(error)s"
+msgstr ""
+"Der RC-Studio-Dienst hat die Synchronisierung von %(label)s nicht "
+"ausgeführt: %(error)s"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/coexistence.py:0
+msgid "The RC Studio service returned an incomplete result: %s"
+msgstr ""
+"Der RC Studio-Dienst hat ein unvollständiges Ergebnis zurückgegeben: %s"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/map/map_picker.js:0
+msgid "The address search is not reachable right now."
+msgstr "Die Adresssuche ist derzeit nicht erreichbar."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/conversation.py:0
+msgid "The business number %s is not connected."
+msgstr "Die Geschäftsnummer %s ist nicht verbunden."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/message.py:0
+msgid "The customer opted out of WhatsApp messages."
+msgstr "Der Kunde hat sich von WhatsApp-Nachrichten abgemeldet."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__phone
+msgid ""
+"The customer's number as WhatsApp identifies it: country code and number, "
+"digits only."
+msgstr ""
+"Die Nummer des Kunden, wie WhatsApp sie identifiziert: Ländervorwahl und "
+"Nummer, nur Ziffern."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template__model_id
+msgid ""
+"The kind of record this template is filled from. Leave empty for templates "
+"sent to a contact only."
+msgstr ""
+"Die Art von Datensatz, aus dem diese Vorlage ausgefüllt wird. Leer lassen "
+"für Vorlagen, die nur an einen Kontakt gesendet werden."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/inbox_store.js:0
+msgid "The location could not be sent."
+msgstr "Der Standort konnte nicht gesendet werden."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/map/map_picker.js:0
+msgid ""
+"The map could not be loaded (no internet access?). You can still type the "
+"coordinates."
+msgstr ""
+"Die Karte konnte nicht geladen werden (kein Internetzugang?). Sie können die"
+" Koordinaten trotzdem eingeben."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/inbox_store.js:0
+msgid "The message could not be sent."
+msgstr "Die Nachricht konnte nicht gesendet werden."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/composer.js:0
+msgid "The microphone is not available or access to it was refused."
+msgstr "Das Mikrofon ist nicht verfügbar oder der Zugriff wurde verweigert."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__profile_name
+msgid "The name the customer shows on WhatsApp."
+msgstr "Der Name, den der Kunde auf WhatsApp anzeigt."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/coexistence.py:0
+msgid "The number is disconnected. Connect it again whenever you want."
+msgstr "Die Nummer ist getrennt. Verbinden Sie sie jederzeit erneut."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/coexistence/coexistence_window.js:0
+msgid "The onboarding could not be checked."
+msgstr "Das Onboarding konnte nicht geprüft werden."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__record_ref
+msgid ""
+"The record the template is filled from when the wizard is not opened from "
+"one, e.g. the quotation to attach."
+msgstr ""
+"Der Datensatz, aus dem die Vorlage befüllt wird, wenn der Assistent nicht "
+"aus einem Datensatz geöffnet wird, z. B. das anzuhängende Angebot."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/composer.js:0
+msgid "The recording could not be packaged as a voice note (%s)."
+msgstr "Die Aufnahme konnte nicht als Sprachnachricht verpackt werden (%s)."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/conversation.py:0
+msgid "The voice note could not be prepared: %s"
+msgstr "Die Sprachnachricht konnte nicht vorbereitet werden: %s"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/inbox_store.js:0
+msgid "The voice note could not be sent."
+msgstr "Die Sprachnachricht konnte nicht gesendet werden."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/coexistence.py:0
+msgid "The webhook subscription failed: %s"
+msgstr "Das Webhook-Abonnement ist fehlgeschlagen: %s"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.constraint,message:rcstudio_whatsapp_coexistence.constraint_rcs_whatsapp_conversation_number_phone_unique
+msgid ""
+"There is already a conversation with this phone on this business number."
+msgstr ""
+"Es gibt bereits eine Konversation mit dieser Telefonnummer auf dieser "
+"Geschäftsnummer."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.constraint,message:rcstudio_whatsapp_coexistence.constraint_rcs_whatsapp_number_phone_number_id_unique
+msgid "This Phone Number ID is already connected on another business number."
+msgstr ""
+"Diese Phone Number ID ist bereits mit einer anderen Geschäftsnummer "
+"verbunden."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/composer.js:0
+msgid ""
+"This browser cannot record Opus audio, which WhatsApp needs for voice notes."
+" Use Chrome, Edge or Firefox, or install ffmpeg on the Odoo server."
+msgstr ""
+"Dieser Browser kann kein Opus-Audio aufnehmen, das WhatsApp für "
+"Sprachnachrichten benötigt. Verwenden Sie Chrome, Edge oder Firefox oder "
+"installieren Sie ffmpeg auf dem Odoo-Server."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/composer.js:0
+msgid "This browser cannot record audio."
+msgstr "Dieser Browser kann kein Audio aufnehmen."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/wizard/send.py:0
+msgid "This customer opted out of WhatsApp messages."
+msgstr "Dieser Kunde hat sich von WhatsApp-Nachrichten abgemeldet."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/thread.xml:0
+msgid "This customer opted out."
+msgstr "Dieser Kunde hat sich abgemeldet."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_conversation_form
+msgid "This customer opted out. Messages will not be sent."
+msgstr "Dieser Kunde hat sich abgemeldet. Nachrichten werden nicht gesendet."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/coexistence.py:0
+msgid ""
+"This number is onboarded through the RC Studio service; the code exchange "
+"does not apply."
+msgstr ""
+"Diese Nummer wird über den RC Studio-Dienst eingebunden; der Code-Austausch "
+"entfällt."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/wizard/send.py:0
+msgid "This template is filled from a %s: pick the record below."
+msgstr ""
+"Diese Vorlage wird aus einem %s befüllt: Wählen Sie unten den Datensatz."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_number__webhook_delivery__relay
+msgid "Through the RC Studio service (older connections)"
+msgstr "Über den RC-Studio-Dienst (ältere Verbindungen)"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/inbox_dates.js:0
+msgid "Today"
+msgstr "Heute"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__signup_token
+msgid ""
+"Token of the Embedded Signup session opened on the RC Studio service. Short-"
+"lived; only needed until the connection completes."
+msgstr ""
+"Token der auf dem RC Studio-Dienst geöffneten Embedded-Signup-Sitzung. "
+"Kurzlebig; nur bis zum Abschluss der Verbindung erforderlich."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_ir_actions_server__state
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_ir_cron__state
+msgid "Type"
+msgstr "Typ"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/composer.xml:0
+msgid "Type a message"
+msgstr "Nachricht eingeben"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_ir_actions_server__state
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_ir_cron__state
+msgid ""
+"Type of server action. The following values are available:\n"
+"- 'Update a Record': update the values of a record\n"
+"- 'Create Activity': create an activity (Discuss)\n"
+"- 'Send Email': post a message, a note or send an email (Discuss)\n"
+"- 'Send SMS': send SMS, log them on documents (SMS)- 'Add/Remove Followers': add or remove followers to a record (Discuss)\n"
+"- 'Create Record': create a new record with new values\n"
+"- 'Execute Code': a block of Python code that will be executed\n"
+"- 'Send Webhook Notification': send a POST request to an external system, also known as a Webhook\n"
+"- 'Execute Existing Actions': define an action that triggers several other server actions\n"
+msgstr ""
+"Art der Serveraktion. Die folgenden Werte sind verfügbar:\n"
+"- „Einen Datensatz aktualisieren“: Aktualisieren Sie die Werte eines Datensatzes.\n"
+"- „Aktivität erstellen“: Erstellen Sie eine Aktivität (Dialog)\n"
+"- „E-Mail versenden“: Hinterlassen Sie eine Nachricht, oder Notiz oder senden Sie eine E-Mail (Dialog)\n"
+"- „SMS versenden“: Senden Sie eine SMS, protokollieren Sie diese in Dokumenten (SMS),\n"
+"- „Follower hinzufügen/entfernen“: Fügen Sie einem Datensatz Follower hinzu oder entfernen Sie sie (Dialog)\n"
+"- „Datensatz erstellen“: Erstellen Sie einen neuen Datensatz mit neuen Werten\n"
+"- „Code ausführen“: ein Block Python-Code, der ausgeführt wird\n"
+"- „Webhook-Benachrichtigung versenden“: Senden Sie eine Anfrage zur VERÖFFENTLICHUNG an ein externes System, auch bekannt als Webhook\n"
+"- „Vorhandene Aktionen ausführen“: Legen Sie eine Aktion fest, die mehrere andere Serveraktionen auslöst\n"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/conversation_list.js:0
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_conversation_search
+msgid "Unread"
+msgstr "Ungelesen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__unread_count
+msgid "Unread Count"
+msgstr "Anzahl ungelesen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_message__kind__unsupported
+msgid "Unsupported"
+msgstr "Nicht unterstützt"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/message.xml:0
+msgid "Unsupported message type"
+msgstr "Nicht unterstützter Nachrichtentyp"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_button__url
+msgid "Url"
+msgstr "URL"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/map/map_picker.xml:0
+msgid "Use my current position"
+msgstr "Meinen aktuellen Standort verwenden"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__user_ids
+msgid ""
+"Users who answer on this number. Leave empty to let every WhatsApp user in. "
+"Anyone listed here is given the WhatsApp Operator role automatically."
+msgstr ""
+"Benutzer, die über diese Nummer antworten. Leer lassen, damit alle WhatsApp-"
+"Benutzer Zugriff haben. Wer hier steht, erhält automatisch die Rolle "
+"WhatsApp-Operator."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_template__category__utility
+msgid "Utility"
+msgstr "Utility"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send_param__value
+msgid "Value"
+msgstr "Wert"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__param_value_ids
+msgid "Values"
+msgstr "Werte"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__verified_name
+msgid "Verified Name"
+msgstr "Verifizierter Name"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_message__kind__video
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_template__header_format__video
+msgid "Video"
+msgstr "Video"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_template_button__kind__url
+msgid "Visit website"
+msgstr "Website besuchen"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/message.xml:0
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_message__is_voice
+msgid "Voice note"
+msgstr "Sprachnachricht"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_number__connection_mode__cloud_api
+msgid "WABA API Connection (Cloud API)"
+msgstr "WABA-API-Verbindung (Cloud API)"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__warning
+msgid "Warning"
+msgstr "Warnung"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form
+msgid "Webhook"
+msgstr "Webhook"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__webhook_delivery
+msgid "Webhook Delivery"
+msgstr "Webhook-Zustellung"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__webhook_last_event
+msgid "Webhook Last Event"
+msgstr "Letztes Webhook-Ereignis"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__webhook_secret
+msgid "Webhook Secret"
+msgstr "Webhook-Geheimnis"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__webhook_subscribed
+msgid "Webhook Subscribed"
+msgstr "Webhook abonniert"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__webhook_token
+msgid "Webhook Token"
+msgstr "Webhook-Token"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__webhook_url
+msgid "Webhook Url"
+msgstr "Webhook-URL"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/number.py:0
+msgid "Webhook subscription removed."
+msgstr "Webhook-Abonnement entfernt."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_template_form
+msgid ""
+"What goes into each placeholder when the template is sent from a record.\n"
+"                                Component is <code>header</code>, <code>body</code> or <code>button_0</code>…;\n"
+"                                placeholder is the number or name between the braces."
+msgstr ""
+"Was in jeden Platzhalter eingesetzt wird, wenn die Vorlage aus einem Datensatz gesendet wird.\n"
+"                                Die Komponente ist <code>header</code>, <code>body</code> oder <code>button_0</code>…;\n"
+"                                der Platzhalter ist die Nummer oder der Name zwischen den geschweiften Klammern."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__coexistence_status
+msgid ""
+"What happened during the last onboarding, sync or diagnosis of this number."
+msgstr ""
+"Was beim letzten Onboarding, bei der letzten Synchronisierung oder Diagnose "
+"dieser Nummer passiert ist."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/res_partner.py:0
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/chatter/chatter_patch.xml:0
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/conversation_list.xml:0
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/inbox_store.js:0
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/phone_field/phone_field.xml:0
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/systray/systray.xml:0
+#: model:ir.module.category,name:rcstudio_whatsapp_coexistence.module_category_whatsapp
+#: model:ir.ui.menu,name:rcstudio_whatsapp_coexistence.menu_root
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_partner_form_whatsapp
+msgid "WhatsApp"
+msgstr "WhatsApp"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form
+msgid "WhatsApp Business Account"
+msgstr "WhatsApp Business Account"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_number__waba_id
+msgid "WhatsApp Business Account ID"
+msgstr "WhatsApp Business Account ID"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model,name:rcstudio_whatsapp_coexistence.model_rcs_whatsapp_number
+msgid "WhatsApp Business Number"
+msgstr "WhatsApp-Geschäftsnummer"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model,name:rcstudio_whatsapp_coexistence.model_rcs_whatsapp_conversation
+msgid "WhatsApp Conversation"
+msgstr "WhatsApp-Konversation"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model,name:rcstudio_whatsapp_coexistence.model_rcs_whatsapp_conversation_link
+msgid "WhatsApp Conversation Document"
+msgstr "WhatsApp-Konversationsdokument"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model,name:rcstudio_whatsapp_coexistence.model_rcs_whatsapp_message
+msgid "WhatsApp Message"
+msgstr "WhatsApp-Nachricht"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model,name:rcstudio_whatsapp_coexistence.model_rcs_whatsapp_template
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_ir_actions_server__rcs_whatsapp_template_id
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_ir_cron__rcs_whatsapp_template_id
+msgid "WhatsApp Template"
+msgstr "WhatsApp-Vorlage"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model,name:rcstudio_whatsapp_coexistence.model_rcs_whatsapp_template_button
+msgid "WhatsApp Template Button"
+msgstr "WhatsApp-Vorlagenschaltfläche"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model,name:rcstudio_whatsapp_coexistence.model_rcs_whatsapp_template_param
+msgid "WhatsApp Template Placeholder"
+msgstr "WhatsApp-Vorlagenplatzhalter"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/systray/systray.xml:0
+msgid "WhatsApp inbox"
+msgstr "WhatsApp-Posteingang"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/wizard/send.py:0
+msgid "WhatsApp message"
+msgstr "WhatsApp-Nachricht"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/coexistence/coexistence_window.js:0
+msgid "WhatsApp number connected via Coexistence."
+msgstr "Über Coexistence verbundene WhatsApp-Nummer."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/wizard/send.py:0
+msgid "WhatsApp template %s"
+msgstr "WhatsApp-Vorlage %s"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.actions.server,name:rcstudio_whatsapp_coexistence.cron_sync_templates_ir_actions_server
+msgid "WhatsApp: refresh template status from Meta"
+msgstr "WhatsApp: Vorlagenstatus von Meta aktualisieren"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.actions.server,name:rcstudio_whatsapp_coexistence.action_message_resend
+msgid "WhatsApp: send failed messages again"
+msgstr "WhatsApp: fehlgeschlagene Nachrichten erneut senden"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.actions.server,name:rcstudio_whatsapp_coexistence.cron_send_queue_ir_actions_server
+msgid "WhatsApp: send queued messages"
+msgstr "WhatsApp: Nachrichten in der Warteschlange senden"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.res_config_settings_view_form
+msgid "Where the licence-based coexistence onboarding runs."
+msgstr "Wo das lizenzbasierte Coexistence-Onboarding ausgeführt wird."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__window_expires_at
+msgid "Window Expires At"
+msgstr "Fenster läuft ab am"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_conversation__window_open
+#: model:ir.model.fields,field_description:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_send__window_open
+msgid "Window Open"
+msgstr "Fenster offen"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_conversation_search
+msgid "Window open"
+msgstr "Fenster offen"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/conversation_list.js:0
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/thread.js:0
+msgid "Window open until %s"
+msgstr "Fenster offen bis %s"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form
+msgid ""
+"With your own Meta app, paste the URL and the token in the app's\n"
+"                                <b>WhatsApp → Configuration → Webhooks</b> and subscribe to <b>messages</b> and\n"
+"                                <b>message_template_status_update</b>; or press <b>Subscribe webhook</b> to let Odoo\n"
+"                                register them on the WhatsApp Business Account. In coexistence mode this is done for you."
+msgstr ""
+"Mit Ihrer eigenen Meta-App fügen Sie die URL und das Token unter\n"
+"                                <b>WhatsApp → Configuration → Webhooks</b> der App ein und abonnieren <b>messages</b> und\n"
+"                                <b>message_template_status_update</b>; oder klicken Sie auf <b>Webhook abonnieren</b>, damit Odoo\n"
+"                                sie im WhatsApp Business Account registriert. Im Coexistence-Modus wird das für Sie erledigt."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/wizard/send.py:0
+msgid "Write something or attach a file."
+msgstr "Schreiben Sie etwas oder hängen Sie eine Datei an."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_send_form
+msgid "Write your message..."
+msgstr "Schreiben Sie Ihre Nachricht..."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/inbox_dates.js:0
+msgid "Yesterday"
+msgstr "Gestern"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/composer.js:0
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/message.js:0
+msgid "You"
+msgstr "Sie"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/coexistence/coexistence_window.js:0
+msgid ""
+"Your browser blocked the onboarding window. Allow pop-ups for this site, or "
+"open it from the button below."
+msgstr ""
+"Ihr Browser hat das Onboarding-Fenster blockiert. Erlauben Sie Pop-ups für "
+"diese Website oder öffnen Sie es über die Schaltfläche unten."
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields.selection,name:rcstudio_whatsapp_coexistence.selection__rcs_whatsapp_number__provider__own
+msgid "Your own Meta Tech Provider app"
+msgstr "Ihre eigene Meta-Tech-Provider-App"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/number.py:0
+msgid ""
+"Your own Tech Provider app needs an App ID and a Login Configuration ID."
+msgstr ""
+"Ihre eigene Tech-Provider-App benötigt eine App ID und eine Login "
+"Configuration ID."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/coexistence.py:0
+msgid "Your own Tech Provider app needs: %s. Your provider issues them."
+msgstr ""
+"Ihre eigene Tech-Provider-App benötigt: %s. Ihr Anbieter stellt sie aus."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/template.py:0
+msgid "a text header may contain one variable at most"
+msgstr "eine Textkopfzeile darf höchstens eine Variable enthalten"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_send_form
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_template_form
+msgid "e.g. Acme store"
+msgstr "z. B. Acme-Shop"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_template_form
+msgid "e.g. Order confirmation"
+msgstr "z. B. Bestellbestätigung"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_number_form
+msgid "e.g. Sales, Support..."
+msgstr "z. B. Vertrieb, Support..."
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-javascript
+#: code:addons/rcstudio_whatsapp_coexistence/static/src/inbox/message.xml:0
+msgid "from the phone"
+msgstr "vom Telefon"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model:ir.model.fields,help:rcstudio_whatsapp_coexistence.field_rcs_whatsapp_template_param__component
+msgid "header, body, or button_0 … button_9"
+msgstr "header, body oder button_0 … button_9"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/template.py:0
+msgid "mix of numbered and named variables"
+msgstr "Mischung aus nummerierten und benannten Variablen"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/template.py:0
+msgid "numbered variables must run {{1}}, {{2}}, {{3}}... without gaps"
+msgstr "nummerierte Variablen müssen lückenlos {{1}}, {{2}}, {{3}} ... lauten"
+
+#. module: rcstudio_whatsapp_coexistence
+#: model_terms:ir.ui.view,arch_db:rcstudio_whatsapp_coexistence.view_send_form
+msgid "selected"
+msgstr "ausgewählt"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/template.py:0
+msgid "the body ends with a variable"
+msgstr "der Text endet mit einer Variablen"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/template.py:0
+msgid "the body starts with a variable"
+msgstr "der Text beginnt mit einer Variablen"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/message.py:0
+msgid "🎤 Voice note"
+msgstr "🎤 Sprachnachricht"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/message.py:0
+msgid "📍 %s"
+msgstr "📍 %s"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/template.py:0
+msgid "📍 Location"
+msgstr "📍 Standort"
+
+#. module: rcstudio_whatsapp_coexistence
+#. odoo-python
+#: code:addons/rcstudio_whatsapp_coexistence/models/message.py:0
+msgid "📎 %s"
+msgstr "📎 %s"

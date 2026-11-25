@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_template_form" model="ir.ui.view">
+        <field name="name">rcs.whatsapp.template.form</field>
+        <field name="model">rcs.whatsapp.template</field>
+        <field name="arch" type="xml">
+            <form string="Template">
+                <header>
+                    <button name="action_submit_to_meta" type="object" string="Submit to Meta" class="btn-primary"
+                            invisible="status not in ('draft', 'rejected')"/>
+                    <button name="action_refresh_from_meta" type="object" string="Refresh status"
+                            invisible="status in ('draft',)"/>
+                    <button name="action_preview" type="object" string="Preview"/>
+                    <button name="action_reset_to_draft" type="object" string="Back to draft"
+                            invisible="status == 'draft'" groups="rcstudio_whatsapp_coexistence.group_manager"/>
+                    <field name="status" widget="statusbar" statusbar_visible="draft,pending,approved"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Rejected" bg_color="text-bg-danger" invisible="status != 'rejected'"/>
+                    <div class="oe_title">
+                        <label for="label"/>
+                        <h1><field name="label" placeholder="e.g. Order confirmation"/></h1>
+                    </div>
+                    <div class="alert alert-danger" role="alert" invisible="not rejection_reason">
+                        <field name="rejection_reason" readonly="1"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="number_id"/>
+                            <field name="name" readonly="status != 'draft'"/>
+                            <field name="language" readonly="status != 'draft'"/>
+                            <field name="category" readonly="status != 'draft'"/>
+                        </group>
+                        <group>
+                            <field name="model_id" options="{'no_create': True}"/>
+                            <field name="model_name" invisible="1"/>
+                            <field name="report_id" invisible="header_format != 'document'"/>
+                            <field name="available_on_records"/>
+                            <field name="meta_template_id" readonly="1"/>
+                            <field name="quality" readonly="1"/>
+                            <field name="is_library" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Content" name="content">
+                            <group>
+                                <field name="header_format" readonly="status != 'draft'"/>
+                                <field name="header_text" invisible="header_format != 'text'" readonly="status != 'draft'"/>
+                                <field name="header_attachment_id" invisible="header_format not in ('image', 'video', 'document')"/>
+                            </group>
+                            <group string="Location header" invisible="header_format != 'location'">
+                                <field name="location_name" placeholder="e.g. Acme store"/>
+                                <field name="location_address" placeholder="Street, city"/>
+                                <field name="location_latitude" widget="rcs_whatsapp_location"
+                                       options="{'longitude_field': 'location_longitude', 'name_field': 'location_name', 'address_field': 'location_address'}"/>
+                                <field name="location_longitude"/>
+                            </group>
+                            <field name="body_text" readonly="status != 'draft'"
+                                   placeholder="Hello {{1}}, your order {{2}} is confirmed."/>
+                            <group>
+                                <field name="footer_text" readonly="status != 'draft'"/>
+                                <field name="placeholder_summary" readonly="1"/>
+                            </group>
+                            <field name="button_ids" readonly="status != 'draft'">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="kind"/>
+                                    <field name="text"/>
+                                    <field name="url" invisible="kind != 'url'"/>
+                                    <field name="phone_number" invisible="kind != 'phone_number'"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Placeholders" name="params">
+                            <p class="text-muted">
+                                What goes into each placeholder when the template is sent from a record.
+                                Component is <code>header</code>, <code>body</code> or <code>button_0</code>…;
+                                placeholder is the number or name between the braces.
+                            </p>
+                            <field name="param_ids">
+                                <list editable="bottom">
+                                    <field name="component"/>
+                                    <field name="placeholder"/>
+                                    <field name="source"/>
+                                    <field name="field_path" invisible="source != 'field'"/>
+                                    <field name="fixed_value" invisible="source != 'fixed'"/>
+                                    <field name="label" invisible="source != 'ask'"/>
+                                    <field name="model_name" column_invisible="1"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Meta payload" name="payload" groups="base.group_no_one">
+                            <field name="components" widget="json"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_template_list" model="ir.ui.view">
+        <field name="name">rcs.whatsapp.template.list</field>
+        <field name="model">rcs.whatsapp.template</field>
+        <field name="arch" type="xml">
+            <list string="Templates">
+                <field name="label"/>
+                <field name="name"/>
+                <field name="number_id"/>
+                <field name="language"/>
+                <field name="category"/>
+                <field name="model_id" optional="show"/>
+                <field name="status" widget="badge" decoration-success="status == 'approved'"
+                       decoration-danger="status == 'rejected'" decoration-info="status == 'pending'"/>
+                <field name="quality" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_template_search" model="ir.ui.view">
+        <field name="name">rcs.whatsapp.template.search</field>
+        <field name="model">rcs.whatsapp.template</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="label"/>
+                <field name="body_text"/>
+                <filter name="approved" string="Approved" domain="[('status', '=', 'approved')]"/>
+                <filter name="draft" string="Draft" domain="[('status', '=', 'draft')]"/>
+                <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
+                <group name="group_by">
+                    <filter name="group_number" string="Business number" context="{'group_by': 'number_id'}"/>
+                    <filter name="group_status" string="Status" context="{'group_by': 'status'}"/>
+                    <filter name="group_model" string="Applies to" context="{'group_by': 'model_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_template" model="ir.actions.act_window">
+        <field name="name">Templates</field>
+        <field name="res_model">rcs.whatsapp.template</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No templates yet</p>
+            <p>Sync the templates of a connected number from Meta, or create one and submit it for approval.</p>
+        </field>
+    </record>
+
+</odoo>

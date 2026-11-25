@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="rcstudio_whatsapp_coexistence.ConversationList">
+        <div class="o_rcs_wa_list d-flex flex-column h-100 flex-shrink-0">
+            <div class="o_rcs_wa_list_header d-flex align-items-center gap-2 px-3">
+                <i class="fa fa-whatsapp o_rcs_wa_brand fs-4"/>
+                <span class="fw-bold flex-grow-1">WhatsApp</span>
+                <button class="btn btn-sm btn-link o_rcs_wa_mute" t-on-click="() => this.store.toggleMute()"
+                        t-att-title="store.muted ? 'Sound off. Click to ring on new messages.' : 'Sound on. Click to mute.'">
+                    <i t-att-class="store.muted ? 'fa fa-bell-slash-o' : 'fa fa-bell-o'"/>
+                </button>
+                <select t-if="store.numbers.length > 1" class="form-select form-select-sm w-auto" t-on-change="onChangeNumber" aria-label="Business number">
+                    <option value="" t-att-selected="!store.numberId">All numbers</option>
+                    <option t-foreach="store.numbers" t-as="number" t-key="number.id" t-att-value="number.id" t-att-selected="store.numberId === number.id" t-esc="number.name"/>
+                </select>
+            </div>
+            <div class="px-3 pb-2">
+                <div class="o_rcs_wa_search d-flex align-items-center gap-2 px-2 rounded-pill">
+                    <i class="fa fa-search opacity-50 small"/>
+                    <input type="text" class="form-control form-control-sm border-0 bg-transparent shadow-none px-0" placeholder="Search" t-model="state.search" t-on-input="onSearchInput"/>
+                    <i t-if="state.search" class="fa fa-times-circle opacity-50" role="button" title="Clear" t-on-click="clearSearch"/>
+                </div>
+            </div>
+            <div class="o_rcs_wa_filters d-flex gap-2 px-3 pb-2">
+                <button t-foreach="filters" t-as="filter" t-key="filter.id" class="btn btn-sm rounded-pill"
+                        t-att-class="{ o_active: store.filter === filter.id }" t-on-click="() => this.store.setFilter(filter.id)">
+                    <t t-esc="filter.label"/>
+                    <span t-if="filter.id === 'unread' and store.unreadTotal" class="badge rounded-pill ms-1" t-esc="store.unreadTotal"/>
+                </button>
+            </div>
+            <div class="o_rcs_wa_list_items flex-grow-1 overflow-auto" t-ref="list" t-on-scroll="onScroll">
+                <div t-if="!store.conversations.length and !store.listLoading" class="text-center opacity-50 p-4 small" t-esc="emptyText"/>
+                <div t-foreach="store.conversations" t-as="conv" t-key="conv.id"
+                     class="o_rcs_wa_item d-flex align-items-center gap-2 px-3 py-2"
+                     t-att-class="{ o_selected: conv.id === store.activeId, o_unread: conv.unread_count }"
+                     role="button" t-on-click="() => this.onClickConversation(conv)">
+                    <div class="o_rcs_wa_avatar_wrap position-relative flex-shrink-0">
+                        <img t-if="conv.avatar_url" class="o_rcs_wa_avatar rounded-circle" t-att-src="conv.avatar_url" alt=""/>
+                        <span t-else="" class="o_rcs_wa_avatar o_rcs_wa_avatar_fallback rounded-circle d-flex align-items-center justify-content-center fw-bold" t-esc="initials(conv)"/>
+                        <img t-if="conv.number_icon_url" class="o_rcs_wa_number_icon rounded-circle position-absolute" t-att-src="conv.number_icon_url" t-att-title="conv.number_name" alt=""/>
+                        <span t-else="" class="o_rcs_wa_number_icon o_rcs_wa_number_fallback rounded-circle position-absolute d-flex align-items-center justify-content-center" t-att-title="conv.number_name" t-esc="numberInitial(conv)"/>
+                    </div>
+                    <div class="flex-grow-1 overflow-hidden">
+                        <div class="d-flex align-items-center gap-1">
+                            <span class="o_rcs_wa_item_name text-truncate flex-grow-1" t-esc="conv.name"/>
+                            <small class="o_rcs_wa_item_stamp flex-shrink-0" t-esc="stamp(conv)"/>
+                        </div>
+                        <div class="d-flex align-items-center gap-1">
+                            <span class="o_rcs_wa_window flex-shrink-0 rounded-circle" t-att-class="conv.window_open ? 'o_open' : 'o_closed'" t-att-data-tooltip="windowTooltip(conv)"/>
+                            <small class="o_rcs_wa_item_preview text-truncate flex-grow-1" t-esc="conv.preview"/>
+                            <span t-if="conv.unread_count" class="o_rcs_wa_unread badge rounded-pill flex-shrink-0" t-esc="conv.unread_count"/>
+                        </div>
+                    </div>
+                </div>
+                <div t-if="store.listLoading" class="text-center p-2"><i class="fa fa-circle-o-notch fa-spin opacity-50"/></div>
+            </div>
+        </div>
+    </t>
+</templates>

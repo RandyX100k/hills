@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_conversation_form" model="ir.ui.view">
+        <field name="name">rcs.whatsapp.conversation.form</field>
+        <field name="model">rcs.whatsapp.conversation</field>
+        <field name="arch" type="xml">
+            <form string="Conversation">
+                <header>
+                    <button name="action_open_inbox" type="object" string="Open in inbox" class="btn-primary" icon="fa-whatsapp"/>
+                    <button name="action_assign_me" type="object" string="Assign to me"/>
+                    <button name="action_blacklist_add" type="object" string="Blacklist number" invisible="opted_out"
+                            confirm="Nothing will be sent to this number until it is removed from the blacklist. Continue?"/>
+                    <button name="action_blacklist_remove" type="object" string="Remove from blacklist" invisible="not opted_out"/>
+                    <button name="action_close" type="object" string="Close" invisible="state == 'closed'"/>
+                    <button name="action_reopen" type="object" string="Reopen" invisible="state == 'open'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                        <div class="text-muted"><field name="phone_display" readonly="1"/></div>
+                    </div>
+                    <div class="alert alert-warning" role="alert" invisible="not opted_out">
+                        This customer opted out. Messages will not be sent.
+                    </div>
+                    <group>
+                        <group>
+                            <field name="number_id"/>
+                            <field name="partner_id"/>
+                            <field name="profile_name"/>
+                            <field name="assigned_user_id"/>
+                            <field name="anchor_name" string="About" readonly="1"
+                                   help="The document this conversation is currently about. Every message is logged in its chatter."/>
+                            <field name="anchor_model" invisible="1"/>
+                            <field name="anchor_res_id" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="last_activity"/>
+                            <field name="last_inbound_at"/>
+                            <field name="window_open"/>
+                            <field name="window_expires_at"/>
+                            <field name="unread_count"/>
+                            <field name="opted_out" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Messages" name="messages">
+                            <field name="message_ids" readonly="1">
+                                <list default_order="date asc" decoration-muted="status == 'failed'">
+                                    <field name="date"/>
+                                    <field name="direction"/>
+                                    <field name="kind"/>
+                                    <field name="body"/>
+                                    <field name="attachment_id"/>
+                                    <field name="status" widget="badge" decoration-danger="status == 'failed'" decoration-success="status in ('delivered', 'read')"/>
+                                    <field name="error_message" optional="hide"/>
+                                    <field name="author_user_id" optional="show"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Documents" name="documents">
+                            <field name="link_ids">
+                                <list>
+                                    <field name="display_name"/>
+                                    <field name="model" optional="hide"/>
+                                    <field name="res_id" optional="hide"/>
+                                    <button name="action_open" type="object" string="Open" icon="fa-external-link"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_conversation_list" model="ir.ui.view">
+        <field name="name">rcs.whatsapp.conversation.list</field>
+        <field name="model">rcs.whatsapp.conversation</field>
+        <field name="arch" type="xml">
+            <list string="Conversations" decoration-bf="unread_count > 0">
+                <field name="name"/>
+                <field name="phone_display"/>
+                <field name="number_id"/>
+                <field name="partner_id" optional="show"/>
+                <field name="last_message_preview"/>
+                <field name="last_activity"/>
+                <field name="unread_count"/>
+                <field name="window_open" optional="show"/>
+                <field name="assigned_user_id" optional="show" widget="many2one_avatar_user"/>
+                <field name="state" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_conversation_search" model="ir.ui.view">
+        <field name="name">rcs.whatsapp.conversation.search</field>
+        <field name="model">rcs.whatsapp.conversation</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="partner_id"/>
+                <filter name="unread" string="Unread" domain="[('unread_count', '>', 0)]"/>
+                <filter name="mine" string="Assigned to me" domain="[('assigned_user_id', '=', uid)]"/>
+                <filter name="window_open" string="Window open" domain="[('window_open', '=', True)]"/>
+                <separator/>
+                <filter name="open" string="Open" domain="[('state', '=', 'open')]"/>
+                <filter name="closed" string="Closed" domain="[('state', '=', 'closed')]"/>
+                <group name="group_by">
+                    <filter name="group_number" string="Business number" context="{'group_by': 'number_id'}"/>
+                    <filter name="group_user" string="Assigned to" context="{'group_by': 'assigned_user_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_conversation" model="ir.actions.act_window">
+        <field name="name">Conversations</field>
+        <field name="res_model">rcs.whatsapp.conversation</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_open': 1}</field>
+    </record>
+
+</odoo>

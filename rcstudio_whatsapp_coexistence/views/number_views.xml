@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_number_form" model="ir.ui.view">
+        <field name="name">rcs.whatsapp.number.form</field>
+        <field name="model">rcs.whatsapp.number</field>
+        <field name="arch" type="xml">
+            <form string="Business Number">
+                <header>
+                    <button name="action_test_connection" type="object" string="Test connection" class="btn-primary"
+                            invisible="connection_mode == 'coexistence' and status != 'connected'"/>
+                    <button name="action_subscribe_webhook" type="object" string="Subscribe webhook"
+                            invisible="status == 'draft' or webhook_subscribed"/>
+                    <button name="action_sync_templates" type="object" string="Sync templates"
+                            invisible="status != 'connected'"/>
+                    <button name="action_load_samples" type="object" string="Load sample templates"
+                            invisible="status != 'connected'"
+                            help="Create draft utility templates for the apps installed, mapped to their records and reports."/>
+                    <field name="status" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_conversations" type="object" class="oe_stat_button" icon="fa-comments">
+                            <field name="conversation_count" widget="statinfo" string="Conversations"/>
+                        </button>
+                        <button name="action_open_templates" type="object" class="oe_stat_button" icon="fa-file-text-o">
+                            <field name="template_count" widget="statinfo" string="Templates"/>
+                        </button>
+                    </div>
+                    <field name="icon" widget="image" class="oe_avatar" options="{'preview_image': 'icon'}"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="e.g. Sales, Support..."/></h1>
+                        <div invisible="not display_phone" class="text-muted">
+                            <field name="display_phone" readonly="1" class="oe_inline"/>
+                            · <field name="verified_name" readonly="1" class="oe_inline"/>
+                        </div>
+                    </div>
+                    <div class="alert alert-danger" role="alert" invisible="not status_message">
+                        <field name="status_message" readonly="1"/>
+                    </div>
+                    <group>
+                        <group string="Connection">
+                            <field name="connection_mode" widget="radio"/>
+                            <field name="provider" widget="radio" invisible="connection_mode != 'coexistence'"
+                                   required="connection_mode == 'coexistence'"/>
+                        </group>
+                        <group string="Meta reports" invisible="not last_check">
+                            <field name="quality_rating"/>
+                            <field name="platform_type"/>
+                            <field name="is_on_biz_app"/>
+                            <field name="last_check"/>
+                        </group>
+                    </group>
+                    <div class="alert alert-info" role="alert" invisible="connection_mode != 'coexistence' or provider != 'rcstudio'">
+                        Paste the licence key you received from RC Studio and press <b>Connect via Coexistence</b>.
+                        The App ID, the token and the number details are filled in automatically once the QR code is scanned.
+                    </div>
+                    <div class="alert alert-warning" role="alert" invisible="connection_mode != 'coexistence' or provider != 'own'">
+                        Any Meta Tech Provider approved for <b>WhatsApp Business App Onboarding</b> works here.
+                        The App ID, App Secret and Login Configuration ID are issued by that provider, not by RC Studio.
+                        RC Studio cannot obtain them for you and is not responsible if the provider does not hand them over.
+                    </div>
+                    <notebook>
+                        <page string="Credentials" name="credentials">
+                            <group>
+                                <group string="RC Studio licence" invisible="connection_mode != 'coexistence' or provider != 'rcstudio'">
+                                    <field name="licence_key" password="True" groups="rcstudio_whatsapp_coexistence.group_manager"/>
+                                </group>
+                                <group string="Meta app" invisible="connection_mode == 'coexistence' and provider == 'rcstudio'">
+                                    <field name="app_id"/>
+                                    <field name="app_secret" password="True" groups="rcstudio_whatsapp_coexistence.group_manager"/>
+                                    <field name="login_config_id" invisible="connection_mode != 'coexistence'"/>
+                                </group>
+                                <group string="WhatsApp Business Account">
+                                    <field name="waba_id"/>
+                                    <field name="phone_number_id"/>
+                                    <field name="access_token" password="True" groups="rcstudio_whatsapp_coexistence.group_manager"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Webhook" name="webhook">
+                            <group>
+                                <field name="webhook_url" widget="CopyClipboardChar" readonly="1"/>
+                                <field name="webhook_token" widget="CopyClipboardChar" readonly="1"/>
+                                <field name="webhook_subscribed"/>
+                                <field name="webhook_last_event"/>
+                                <field name="webhook_delivery"
+                                       invisible="connection_mode != 'coexistence' or provider != 'rcstudio' or webhook_delivery == 'direct'"/>
+                            </group>
+                            <div class="mb-2">
+                                <button name="action_rotate_webhook_token" type="object" string="Rotate the token"
+                                        class="btn-link" icon="fa-refresh" invisible="not id"
+                                        confirm="A new token means a new URL: the current one stops working and Meta is told about the new one. Continue?"/>
+                            </div>
+                            <p class="text-muted" invisible="connection_mode != 'coexistence' or provider != 'rcstudio' or webhook_delivery != 'direct'">
+                                Meta delivers straight to this Odoo: no message passes through RC Studio, which only
+                                took part in the connection. Meta signs with the App Secret of RC Studio's app, which
+                                is not here, so the signature cannot be checked and the secret token in the URL is what
+                                guards the endpoint. Deliveries addressed to another business account or another number
+                                are dropped. If the URL is ever exposed, rotate the token.
+                            </p>
+                            <p class="text-muted">
+                                With your own Meta app, paste the URL and the token in the app's
+                                <b>WhatsApp → Configuration → Webhooks</b> and subscribe to <b>messages</b> and
+                                <b>message_template_status_update</b>; or press <b>Subscribe webhook</b> to let Odoo
+                                register them on the WhatsApp Business Account. In coexistence mode this is done for you.
+                            </p>
+                        </page>
+                        <page string="Operators" name="operators">
+                            <group>
+                                <field name="user_ids" widget="many2many_tags"/>
+                                <field name="company_ids" widget="many2many_tags" groups="base.group_multi_company"/>
+                                <field name="color" widget="color_picker"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_number_list" model="ir.ui.view">
+        <field name="name">rcs.whatsapp.number.list</field>
+        <field name="model">rcs.whatsapp.number</field>
+        <field name="arch" type="xml">
+            <list string="Business Numbers">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="display_phone"/>
+                <field name="connection_mode"/>
+                <field name="provider" optional="hide"/>
+                <field name="status" widget="badge" decoration-success="status == 'connected'" decoration-danger="status == 'error'"/>
+                <field name="quality_rating" optional="show"/>
+                <field name="user_ids" widget="many2many_tags" optional="show"/>
+                <field name="company_ids" widget="many2many_tags" optional="hide" groups="base.group_multi_company"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_number" model="ir.actions.act_window">
+        <field name="name">Business Numbers</field>
+        <field name="res_model">rcs.whatsapp.number</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Connect your first WhatsApp number</p>
+            <p>A dedicated Cloud API number with your own Meta app, or the number you already use on the phone with Coexistence.</p>
+        </field>
+    </record>
+
+</odoo>

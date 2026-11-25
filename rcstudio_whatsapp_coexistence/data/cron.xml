@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="cron_send_queue" model="ir.cron">
+        <field name="name">WhatsApp: send queued messages</field>
+        <field name="model_id" ref="model_rcs_whatsapp_message"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_send_queue()</field>
+        <field name="interval_number">5</field>
+        <field name="interval_type">minutes</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="cron_sync_templates" model="ir.cron">
+        <field name="name">WhatsApp: refresh template status from Meta</field>
+        <field name="model_id" ref="model_rcs_whatsapp_number"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_sync_templates()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="cron_subscribe_webhooks" model="ir.cron">
+        <field name="name">WhatsApp: register pending webhooks</field>
+        <field name="model_id" ref="model_rcs_whatsapp_number"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_subscribe_webhooks()</field>
+        <field name="interval_number">30</field>
+        <field name="interval_type">minutes</field>
+        <field name="active" eval="True"/>
+    </record>
+
+    <record id="cron_release_anchors" model="ir.cron">
+        <field name="name">WhatsApp: release finished conversation documents</field>
+        <field name="model_id" ref="model_rcs_whatsapp_conversation"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_release_anchors()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active" eval="True"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_send_form" model="ir.ui.view">
+        <field name="name">rcs.whatsapp.send.form</field>
+        <field name="model">rcs.whatsapp.send</field>
+        <field name="arch" type="xml">
+            <form string="Send by WhatsApp">
+                <div class="alert alert-warning" role="alert" invisible="not warning">
+                    <field name="warning" readonly="1" nolabel="1"/>
+                </div>
+                <group>
+                    <group>
+                        <field name="number_id" options="{'no_create': True}"/>
+                        <field name="record_count" invisible="1"/>
+                        <field name="record_name" string="Record" invisible="record_count != 1"/>
+                        <label for="record_count" string="Records" invisible="record_count &lt;= 1"/>
+                        <div invisible="record_count &lt;= 1"><field name="record_count" class="oe_inline"/> selected</div>
+                        <field name="partner_id" invisible="record_count > 1"/>
+                        <field name="phone" invisible="record_count > 1" placeholder="+57 300 000 0000"/>
+                        <field name="phone_wa" invisible="1"/>
+                        <field name="model" invisible="1"/>
+                        <field name="res_ids" invisible="1"/>
+                        <field name="conversation_id" invisible="1"/>
+                        <field name="window_open" invisible="1"/>
+                    </group>
+                    <group>
+                        <field name="mode" widget="radio" invisible="record_count > 1"/>
+                        <field name="template_id" invisible="mode != 'template'" options="{'no_create': True}"
+                               required="mode == 'template'"/>
+                        <field name="template_model_name" invisible="1"/>
+                        <field name="allowed_template_ids" invisible="1"/>
+                        <field name="record_ref" invisible="mode != 'template' or model or not template_model_name"
+                               options="{'no_create': True}"/>
+                    </group>
+                </group>
+                <field name="template_header_format" invisible="1"/>
+                <group string="Location to send" invisible="mode != 'template' or template_header_format != 'location'">
+                    <field name="location_name" placeholder="e.g. Acme store"/>
+                    <field name="location_address" placeholder="Street, city"/>
+                    <field name="location_latitude" widget="rcs_whatsapp_location"
+                           options="{'longitude_field': 'location_longitude', 'name_field': 'location_name', 'address_field': 'location_address'}"/>
+                    <field name="location_longitude"/>
+                </group>
+                <field name="param_value_ids" invisible="mode != 'template' or not param_value_ids">
+                    <list editable="bottom" create="false" delete="false">
+                        <field name="param_id" column_invisible="1"/>
+                        <field name="label" readonly="1"/>
+                        <field name="value"/>
+                    </list>
+                </field>
+                <field name="body" invisible="mode != 'text'" placeholder="Write your message..."/>
+                <field name="attachment_ids" widget="many2many_binary" invisible="mode != 'text'"/>
+                <group string="Preview" invisible="mode != 'template'">
+                    <field name="preview_text" nolabel="1" readonly="1" class="o_field_text"/>
+                </group>
+                <footer>
+                    <button name="action_send" type="object" string="Send" class="btn-primary" data-hotkey="q"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="x"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_send" model="ir.actions.act_window">
+        <field name="name">Send by WhatsApp</field>
+        <field name="res_model">rcs.whatsapp.send</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

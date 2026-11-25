@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="rcstudio_whatsapp_coexistence.Thread">
+        <div class="o_rcs_wa_thread d-flex flex-column h-100" t-if="conversation">
+            <div class="o_rcs_wa_thread_header d-flex align-items-center gap-2 px-3">
+                <img t-if="conversation.avatar_url" class="o_rcs_wa_avatar rounded-circle flex-shrink-0" t-att-src="conversation.avatar_url" alt=""/>
+                <span t-else="" class="o_rcs_wa_avatar o_rcs_wa_avatar_fallback rounded-circle d-flex align-items-center justify-content-center fw-bold flex-shrink-0" t-esc="initials()"/>
+                <div class="overflow-hidden">
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="fw-bold text-truncate" t-esc="conversation.name"/>
+                        <span class="o_rcs_wa_window rounded-circle flex-shrink-0" t-att-class="conversation.window_open ? 'o_open' : 'o_closed'" t-att-data-tooltip="windowTooltip"/>
+                        <span t-if="conversation.state === 'closed'" class="badge rounded-pill text-bg-secondary">Closed</span>
+                    </div>
+                    <small class="o_rcs_wa_thread_sub d-block text-truncate">
+                        <t t-esc="conversation.phone_display"/>
+                        <span class="mx-1 opacity-50">·</span>
+                        <img t-if="conversation.number_icon_url" class="o_rcs_wa_number_icon_inline rounded-circle" t-att-src="conversation.number_icon_url" alt=""/>
+                        <t t-esc="conversation.number_name"/>
+                        <t t-if="conversation.assigned_user_name">
+                            <span class="mx-1 opacity-50">·</span>
+                            <i class="fa fa-user-o me-1"/><t t-esc="conversation.assigned_user_name"/>
+                        </t>
+                        <t t-if="anchor">
+                            <span class="mx-1 opacity-50">·</span>
+                            <a href="#" class="o_rcs_wa_anchor" t-on-click.prevent="openAnchor" t-att-title="anchorTitle">
+                                <i class="fa fa-thumb-tack me-1"/><t t-esc="anchor.name"/>
+                            </a>
+                        </t>
+                    </small>
+                </div>
+                <div class="ms-auto d-flex align-items-center gap-1 flex-shrink-0">
+                    <button t-if="conversation.partner_id" class="btn btn-sm btn-link" t-on-click="openPartner" title="Open the contact">
+                        <i class="fa fa-address-card-o me-1"/><span class="d-none d-xl-inline">Contact</span>
+                    </button>
+                    <button t-else="" class="btn btn-sm btn-link" t-on-click="createPartner"
+                            t-att-disabled="store.anchorBusy" title="Create a contact from this WhatsApp name and number">
+                        <i class="fa fa-user-plus me-1"/><span class="d-none d-xl-inline">Create contact</span>
+                    </button>
+                    <Dropdown position="'bottom-end'" beforeOpen.bind="loadAnchorOptions">
+                        <button class="btn btn-sm btn-link" t-att-title="anchorTitle">
+                            <i class="fa fa-thumb-tack me-1"/>
+                            <span class="d-none d-xl-inline" t-esc="anchorLabel"/>
+                        </button>
+                        <t t-set-slot="content">
+                            <div class="dropdown-header">Log this conversation in</div>
+                            <DropdownItem t-foreach="store.anchorOptions.options" t-as="option"
+                                          t-key="option.model + '/' + option.res_id"
+                                          onSelected="() => this.store.setAnchor(option.model, option.res_id)">
+                                <i class="fa fa-thumb-tack me-1" t-att-class="anchor and anchor.model === option.model and anchor.res_id === option.res_id ? '' : 'opacity-25'"/>
+                                <t t-esc="option.name"/>
+                            </DropdownItem>
+                            <div t-if="!store.anchorOptions.options.length" class="dropdown-item-text text-muted small">
+                                No document to link to yet.
+                            </div>
+                            <t t-if="creatable.length">
+                                <div class="dropdown-divider"/>
+                                <DropdownItem t-foreach="creatable" t-as="docType" t-key="docType.model"
+                                              onSelected="() => this.store.createDocument(docType.model)">
+                                    <i class="fa fa-plus me-1"/>New <t t-esc="docType.label"/>
+                                </DropdownItem>
+                            </t>
+                            <t t-if="anchor">
+                                <div class="dropdown-divider"/>
+                                <DropdownItem onSelected="() => this.store.clearAnchor()">
+                                    <i class="fa fa-chain-broken me-1"/>Stop logging there
+                                </DropdownItem>
+                            </t>
+                        </t>
+                    </Dropdown>
+                    <button t-if="!anchor and creatable.length" class="btn btn-sm btn-primary"
+                            t-att-disabled="store.anchorBusy"
+                            t-on-click="() => this.store.createDocument(this.creatable[0].model)">
+                        <i class="fa fa-plus me-1"/><span class="d-none d-xl-inline" t-esc="creatable[0].label"/>
+                    </button>
+                    <button t-if="!isMine" class="btn btn-sm btn-secondary" t-on-click="() => this.store.assignMe()">
+                        <i class="fa fa-hand-paper-o me-1"/>Assign to me
+                    </button>
+                    <button t-if="conversation.state === 'open'" class="btn btn-sm btn-secondary" t-on-click="() => this.store.close()">
+                        <i class="fa fa-check me-1"/>Close
+                    </button>
+                    <button t-else="" class="btn btn-sm btn-secondary" t-on-click="() => this.store.reopen()">
+                        <i class="fa fa-undo me-1"/>Reopen
+                    </button>
+                </div>
+            </div>
+
+            <div class="o_rcs_wa_messages flex-grow-1 overflow-auto px-3 py-2" t-ref="scroller" t-on-scroll="onScroll">
+                <div t-if="store.threadHasMore" class="text-center my-2">
+                    <button class="btn btn-sm btn-light rounded-pill" t-att-disabled="store.olderLoading" t-on-click="() => this.store.loadOlder()">
+                        <i t-if="store.olderLoading" class="fa fa-circle-o-notch fa-spin me-1"/>
+                        <i t-else="" class="fa fa-history me-1"/>Load older messages
+                    </button>
+                </div>
+                <div t-if="store.threadLoading and !store.messages.length" class="text-center p-4"><i class="fa fa-circle-o-notch fa-spin opacity-50"/></div>
+                <div t-elif="!store.messages.length" class="text-center opacity-50 p-4 small">No messages yet.</div>
+                <t t-foreach="groups" t-as="group" t-key="group.key">
+                    <div class="o_rcs_wa_day text-center my-2"><span class="badge rounded-pill" t-esc="group.label"/></div>
+                    <Message t-foreach="group.messages" t-as="message" t-key="message.id"
+                             message="message" reactions="reactionsFor(message)"
+                             onReply.bind="setReply" onImageLoad.bind="onImageLoad"/>
+                </t>
+            </div>
+
+            <div t-if="conversation.opted_out" class="o_rcs_wa_notice d-flex align-items-center gap-3 px-3 py-3">
+                <i class="fa fa-ban fa-lg text-danger"/>
+                <div class="flex-grow-1">
+                    <div class="fw-bold">This customer opted out.</div>
+                    <small class="opacity-75">Messages to this number will not be sent.</small>
+                </div>
+                <button class="btn btn-secondary flex-shrink-0" t-on-click="() => this.store.removeFromBlacklist()">
+                    <i class="fa fa-check me-1"/>Remove from blacklist
+                </button>
+            </div>
+            <Composer t-elif="conversation.window_open"/>
+            <div t-else="" class="o_rcs_wa_notice d-flex align-items-center gap-3 px-3 py-3">
+                <i class="fa fa-clock-o fa-lg opacity-50"/>
+                <div class="flex-grow-1">
+                    <div class="fw-bold">The 24-hour window is closed.</div>
+                    <small class="opacity-75">Free-form replies are only allowed within 24 hours of the customer's last message. Send an approved template to reopen the conversation.</small>
+                </div>
+                <button class="btn btn-primary flex-shrink-0" t-on-click="() => this.store.openTemplateWizard()">
+                    <i class="fa fa-paper-plane me-1"/>Send a template
+                </button>
+            </div>
+        </div>
+    </t>
+</templates>

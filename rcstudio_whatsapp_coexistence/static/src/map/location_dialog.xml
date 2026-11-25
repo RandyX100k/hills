@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="rcstudio_whatsapp_coexistence.LocationDialog">
+        <Dialog title="title" size="'md'">
+            <div class="d-flex gap-2 mb-2">
+                <input type="text" class="form-control" placeholder="Place name (optional)" t-model="state.name"/>
+            </div>
+            <div class="mb-2">
+                <input type="text" class="form-control" placeholder="Address shown under the pin (optional)" t-model="state.address"/>
+            </div>
+            <MapPicker latitude="state.latitude" longitude="state.longitude" onChange.bind="onPick" height="'320px'"/>
+            <div class="small text-muted mt-1">
+                <t t-if="state.latitude or state.longitude"><t t-esc="state.latitude"/>, <t t-esc="state.longitude"/></t>
+                <t t-else="">No point selected yet.</t>
+            </div>
+            <t t-set-slot="footer">
+                <button class="btn btn-primary" t-on-click="send" t-att-disabled="!canSend">
+                    <i t-if="state.sending" class="fa fa-circle-o-notch fa-spin me-1"/><i t-else="" class="fa fa-map-marker me-1"/>Send
+                </button>
+                <button class="btn btn-secondary" t-on-click="() => this.props.close()">Cancel</button>
+            </t>
+        </Dialog>
+    </t>
+</templates>

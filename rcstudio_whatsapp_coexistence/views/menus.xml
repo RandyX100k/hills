@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_root" name="WhatsApp" sequence="60"
+              web_icon="rcstudio_whatsapp_coexistence,static/description/icon.png"
+              groups="rcstudio_whatsapp_coexistence.group_user"/>
+
+    <menuitem id="menu_inbox" name="Inbox" parent="menu_root" sequence="5"
+              action="action_inbox"/>
+    <menuitem id="menu_conversations" name="Conversations" parent="menu_root" sequence="10"
+              action="action_conversation"/>
+    <menuitem id="menu_templates" name="Templates" parent="menu_root" sequence="20"
+              action="action_template" groups="rcstudio_whatsapp_coexistence.group_manager"/>
+    <menuitem id="menu_messages" name="Message Log" parent="menu_root" sequence="30"
+              action="action_message" groups="rcstudio_whatsapp_coexistence.group_manager"/>
+
+    <menuitem id="menu_configuration" name="Configuration" parent="menu_root" sequence="90"
+              groups="rcstudio_whatsapp_coexistence.group_manager"/>
+    <menuitem id="menu_numbers" name="Business Numbers" parent="menu_configuration" sequence="10"
+              action="action_number"/>
+    <menuitem id="menu_blacklist" name="Blacklisted Numbers" parent="menu_configuration" sequence="20"
+              action="phone_validation.phone_blacklist_action"/>
+    <menuitem id="menu_settings" name="Settings" parent="menu_configuration" sequence="90"
+              action="action_settings"/>
+
+</odoo>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="param_graph_version" model="ir.config_parameter">
+        <field name="key">rcstudio_whatsapp_coexistence.graph_version</field>
+        <field name="value">v22.0</field>
+    </record>
+
+    <record id="param_opt_out_words" model="ir.config_parameter">
+        <field name="key">rcstudio_whatsapp_coexistence.opt_out_words</field>
+        <field name="value">stop, unsubscribe, baja</field>
+    </record>
+
+    <record id="param_broker_url" model="ir.config_parameter">
+        <field name="key">rcstudio_whatsapp_coexistence.broker_url</field>
+        <field name="value">https://coexistence.rcstudio.dev</field>
+    </record>
+
+    <record id="param_mirror_chatter" model="ir.config_parameter">
+        <field name="key">rcstudio_whatsapp_coexistence.mirror_chatter</field>
+        <field name="value">True</field>
+    </record>
+
+</odoo>

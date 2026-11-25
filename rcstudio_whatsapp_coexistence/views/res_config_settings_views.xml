@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.rcs.whatsapp</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="WhatsApp" string="WhatsApp" name="rcstudio_whatsapp_coexistence"
+                     logo="/rcstudio_whatsapp_coexistence/static/description/icon.png" groups="rcstudio_whatsapp_coexistence.group_manager">
+                    <block title="Business numbers" name="rcs_whatsapp_numbers">
+                        <setting string="Numbers" help="Connect a dedicated Cloud API number or a coexistence number.">
+                            <button name="action_open_rcs_whatsapp_numbers" type="object" string="Manage numbers" class="btn-link" icon="oi-arrow-right"/>
+                        </setting>
+                    </block>
+                    <block title="Conversations" name="rcs_whatsapp_conversations">
+                        <setting string="Opt-out words" help="A customer who replies one of these words is blacklisted. Comma separated.">
+                            <field name="rcs_whatsapp_opt_out_words"/>
+                        </setting>
+                        <setting string="Read receipts" help="Tell Meta the customer's messages were read when an operator opens the conversation.">
+                            <field name="rcs_whatsapp_auto_read"/>
+                        </setting>
+                        <setting string="Contacts from the phone" help="Coexistence: create a contact for each phone contact Meta sends during the one-time sync.">
+                            <field name="rcs_whatsapp_sync_contacts"/>
+                        </setting>
+                        <setting string="Log in the chatter" help="Copy every message to the chatter of the document the conversation is about, so the exchange reads in the record like an email thread.">
+                            <field name="rcs_whatsapp_mirror_chatter"/>
+                        </setting>
+                    </block>
+                    <block title="Advanced" name="rcs_whatsapp_advanced">
+                        <setting string="Graph API version">
+                            <field name="rcs_whatsapp_graph_version"/>
+                        </setting>
+                        <setting string="RC Studio service URL" help="Where the licence-based coexistence onboarding runs.">
+                            <field name="rcs_whatsapp_broker_url"/>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_settings" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+        <field name="context">{'module': 'rcstudio_whatsapp_coexistence', 'bin_size': False}</field>
+    </record>
+
+</odoo>

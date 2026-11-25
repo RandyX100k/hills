@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_number_user,rcs.whatsapp.number user,model_rcs_whatsapp_number,group_user,1,0,0,0
+access_number_manager,rcs.whatsapp.number manager,model_rcs_whatsapp_number,group_manager,1,1,1,1
+access_conversation_user,rcs.whatsapp.conversation user,model_rcs_whatsapp_conversation,group_user,1,1,1,0
+access_conversation_manager,rcs.whatsapp.conversation manager,model_rcs_whatsapp_conversation,group_manager,1,1,1,1
+access_conversation_link_user,rcs.whatsapp.conversation.link user,model_rcs_whatsapp_conversation_link,group_user,1,1,1,0
+access_conversation_link_manager,rcs.whatsapp.conversation.link manager,model_rcs_whatsapp_conversation_link,group_manager,1,1,1,1
+access_message_user,rcs.whatsapp.message user,model_rcs_whatsapp_message,group_user,1,1,1,0
+access_message_manager,rcs.whatsapp.message manager,model_rcs_whatsapp_message,group_manager,1,1,1,1
+access_template_user,rcs.whatsapp.template user,model_rcs_whatsapp_template,group_user,1,0,0,0
+access_template_manager,rcs.whatsapp.template manager,model_rcs_whatsapp_template,group_manager,1,1,1,1
+access_template_button_user,rcs.whatsapp.template.button user,model_rcs_whatsapp_template_button,group_user,1,0,0,0
+access_template_button_manager,rcs.whatsapp.template.button manager,model_rcs_whatsapp_template_button,group_manager,1,1,1,1
+access_template_param_user,rcs.whatsapp.template.param user,model_rcs_whatsapp_template_param,group_user,1,0,0,0
+access_template_param_manager,rcs.whatsapp.template.param manager,model_rcs_whatsapp_template_param,group_manager,1,1,1,1
+access_send_user,rcs.whatsapp.send user,model_rcs_whatsapp_send,group_user,1,1,1,1
+access_send_param_user,rcs.whatsapp.send.param user,model_rcs_whatsapp_send_param,group_user,1,1,1,1

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_message_list" model="ir.ui.view">
+        <field name="name">rcs.whatsapp.message.list</field>
+        <field name="model">rcs.whatsapp.message</field>
+        <field name="arch" type="xml">
+            <list string="Messages" decoration-danger="status == 'failed'" create="false">
+                <field name="date"/>
+                <field name="conversation_id"/>
+                <field name="number_id" optional="show"/>
+                <field name="direction"/>
+                <field name="kind"/>
+                <field name="body"/>
+                <field name="status" widget="badge" decoration-danger="status == 'failed'" decoration-success="status in ('delivered', 'read')" decoration-info="status in ('queued', 'sending')"/>
+                <field name="error_code" optional="hide"/>
+                <field name="error_message" optional="show"/>
+                <field name="author_user_id" optional="show"/>
+                <field name="template_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_message_form" model="ir.ui.view">
+        <field name="name">rcs.whatsapp.message.form</field>
+        <field name="model">rcs.whatsapp.message</field>
+        <field name="arch" type="xml">
+            <form string="Message" create="false">
+                <header>
+                    <button name="action_send_again" type="object" string="Send again" invisible="direction != 'out' or status != 'failed'"/>
+                    <field name="status" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="conversation_id"/>
+                            <field name="number_id"/>
+                            <field name="direction"/>
+                            <field name="kind"/>
+                            <field name="date"/>
+                            <field name="author_user_id"/>
+                            <field name="is_echo"/>
+                        </group>
+                        <group>
+                            <field name="wa_message_id"/>
+                            <field name="error_code"/>
+                            <field name="error_message"/>
+                            <field name="attempts"/>
+                            <field name="next_attempt"/>
+                            <field name="read_at"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="body"/>
+                        <field name="caption"/>
+                        <field name="attachment_id"/>
+                        <field name="reply_to_id"/>
+                        <field name="template_id"/>
+                    </group>
+                    <group string="Location" invisible="kind != 'location'">
+                        <field name="latitude"/>
+                        <field name="longitude"/>
+                        <field name="location_name"/>
+                        <field name="location_address"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_message_search" model="ir.ui.view">
+        <field name="name">rcs.whatsapp.message.search</field>
+        <field name="model">rcs.whatsapp.message</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="body"/>
+                <field name="conversation_id"/>
+                <field name="wa_message_id"/>
+                <filter name="failed" string="Failed" domain="[('status', '=', 'failed')]"/>
+                <filter name="queued" string="Queued" domain="[('status', 'in', ('queued', 'sending'))]"/>
+                <filter name="outbound" string="Outbound" domain="[('direction', '=', 'out')]"/>
+                <filter name="inbound" string="Inbound" domain="[('direction', '=', 'in')]"/>
+                <group name="group_by">
+                    <filter name="group_status" string="Status" context="{'group_by': 'status'}"/>
+                    <filter name="group_number" string="Business number" context="{'group_by': 'number_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_message" model="ir.actions.act_window">
+        <field name="name">Message Log</field>
+        <field name="res_model">rcs.whatsapp.message</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_message_resend" model="ir.actions.server">
+        <field name="name">WhatsApp: send failed messages again</field>
+        <field name="model_id" ref="model_rcs_whatsapp_message"/>
+        <field name="binding_model_id" ref="model_rcs_whatsapp_message"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">records.action_send_again()</field>
+    </record>
+
+</odoo>

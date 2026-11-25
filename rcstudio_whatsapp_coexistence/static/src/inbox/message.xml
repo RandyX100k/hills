@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="rcstudio_whatsapp_coexistence.Message">
+        <div t-if="message.kind === 'system'" class="o_rcs_wa_system text-center my-2">
+            <span class="badge rounded-pill" t-esc="message.body"/>
+        </div>
+        <div t-else="" class="o_rcs_wa_msg d-flex mb-1" t-att-class="{ o_out: isOut, o_in: !isOut, o_has_reactions: props.reactions.length }">
+            <div class="o_rcs_wa_bubble position-relative rounded-3 px-2 pt-1 pb-1" t-att-class="{ o_failed: message.status === 'failed' }">
+                <button class="o_rcs_wa_reply_btn btn btn-sm btn-link position-absolute p-0" title="Reply" t-on-click="onReply">
+                    <i class="fa fa-reply"/>
+                </button>
+                <div t-if="message.template" class="o_rcs_wa_tag small mb-1">
+                    <i class="fa fa-file-text-o me-1"/>Template: <t t-esc="message.template"/>
+                </div>
+                <div t-if="message.reply_to" class="o_rcs_wa_quote rounded-2 px-2 py-1 mb-1 small">
+                    <div class="fw-bold" t-esc="replyLabel"/>
+                    <div class="text-truncate" t-esc="message.reply_to.body"/>
+                </div>
+                <t t-if="message.attachment">
+                    <a t-if="message.kind === 'image' or message.kind === 'sticker'" class="d-block" t-att-href="message.attachment.url" target="_blank" t-att-title="message.attachment.name">
+                        <img class="o_rcs_wa_image rounded-2" t-att-class="{ o_sticker: message.kind === 'sticker' }" t-att-src="message.attachment.image_url" t-att-alt="message.attachment.name" t-on-load="() => this.props.onImageLoad?.()"/>
+                    </a>
+                    <video t-elif="message.kind === 'video'" class="o_rcs_wa_video rounded-2" controls="controls" preload="metadata" t-att-src="mediaUrl"/>
+                    <div t-elif="message.kind === 'audio'" class="d-flex align-items-center gap-2">
+                        <i t-if="message.is_voice" class="fa fa-microphone opacity-75" title="Voice note"/>
+                        <audio class="o_rcs_wa_audio" controls="controls" preload="metadata" t-att-src="mediaUrl"/>
+                    </div>
+                    <a t-else="" class="o_rcs_wa_document d-flex align-items-center gap-2 rounded-2 px-2 py-2 text-decoration-none" t-att-href="message.attachment.url" target="_blank">
+                        <i t-att-class="'fa fa-2x ' + documentIcon"/>
+                        <div class="overflow-hidden flex-grow-1">
+                            <div class="text-truncate fw-bold" t-esc="message.attachment.name"/>
+                            <small class="opacity-75" t-esc="message.attachment.mimetype"/>
+                        </div>
+                        <i class="fa fa-download opacity-75"/>
+                    </a>
+                </t>
+                <div t-elif="isMedia" class="fst-italic opacity-75 small"><i class="fa fa-paperclip me-1"/>Media unavailable</div>
+                <a t-if="message.location" class="o_rcs_wa_location d-flex align-items-center gap-2 text-decoration-none" t-att-href="mapUrl" target="_blank">
+                    <i class="fa fa-map-marker fa-2x text-danger"/>
+                    <div class="overflow-hidden">
+                        <div class="fw-bold text-truncate" t-esc="message.location.name || 'Shared location'"/>
+                        <small class="opacity-75 text-truncate d-block" t-esc="locationSubtitle"/>
+                    </div>
+                </a>
+                <div t-if="message.kind === 'unsupported'" class="fst-italic opacity-75 small"><i class="fa fa-ban me-1"/>Unsupported message type</div>
+                <div t-if="message.kind === 'contacts' and !message.body" class="fst-italic opacity-75 small"><i class="fa fa-address-book-o me-1"/>Contact card</div>
+                <div t-if="bodyText" class="o_rcs_wa_body" t-esc="bodyText"/>
+                <div class="o_rcs_wa_meta d-flex align-items-center justify-content-end gap-1 small">
+                    <span t-if="message.is_echo" class="o_rcs_wa_echo me-1" data-tooltip="Sent from the WhatsApp app on the phone"><i class="fa fa-mobile me-1"/>from the phone</span>
+                    <span t-elif="message.author" class="me-1 text-truncate" t-esc="message.author"/>
+                    <span t-att-data-tooltip="fullDate" t-esc="time"/>
+                    <t t-if="isOut and status">
+                        <i t-if="status.icon" t-att-class="'fa ' + status.icon" t-att-data-tooltip="status.tooltip"/>
+                        <span t-else="" class="o_rcs_wa_ticks" t-att-class="status.cls" t-att-data-tooltip="status.tooltip" t-esc="status.ticks"/>
+                    </t>
+                </div>
+                <div t-if="props.reactions.length" class="o_rcs_wa_reactions position-absolute rounded-pill px-1">
+                    <span t-foreach="props.reactions" t-as="emoji" t-key="emoji_index" t-esc="emoji"/>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

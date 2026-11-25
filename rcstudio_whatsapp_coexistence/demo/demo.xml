@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="demo_number_sales" model="rcs.whatsapp.number">
+        <field name="name">Acme Sales</field>
+        <field name="connection_mode">cloud_api</field>
+        <field name="app_id">1234567890123456</field>
+        <field name="waba_id">100000000000001</field>
+        <field name="phone_number_id">200000000000001</field>
+        <field name="access_token">demo-token-not-valid</field>
+        <field name="display_phone">+1 415-200-4477</field>
+        <field name="verified_name">Acme Sales</field>
+        <field name="quality_rating">GREEN</field>
+        <field name="status">connected</field>
+        <field name="color">10</field>
+    </record>
+
+    <record id="demo_number_support" model="rcs.whatsapp.number">
+        <field name="name">Acme Support</field>
+        <field name="connection_mode">coexistence</field>
+        <field name="provider">rcstudio</field>
+        <field name="waba_id">100000000000002</field>
+        <field name="phone_number_id">200000000000002</field>
+        <field name="access_token">demo-token-not-valid</field>
+        <field name="display_phone">+1 415-200-4488</field>
+        <field name="verified_name">Acme Support</field>
+        <field name="quality_rating">GREEN</field>
+        <field name="platform_type">CLOUD_API</field>
+        <field name="is_on_biz_app" eval="True"/>
+        <field name="status">connected</field>
+        <field name="color">4</field>
+    </record>
+
+    <record id="demo_template_order" model="rcs.whatsapp.template">
+        <field name="number_id" ref="demo_number_sales"/>
+        <field name="name">order_confirmation</field>
+        <field name="label">Order confirmation</field>
+        <field name="language">en_US</field>
+        <field name="category">utility</field>
+        <field name="status">approved</field>
+        <field name="meta_template_id">300000000000001</field>
+        <field name="header_format">text</field>
+        <field name="header_text">Order {{1}}</field>
+        <field name="body_text">Hello {{1}}, thank you for your order. We will let you know as soon as it ships.</field>
+        <field name="footer_text">Acme Sales</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+    </record>
+    <record id="demo_template_order_param_header" model="rcs.whatsapp.template.param">
+        <field name="template_id" ref="demo_template_order"/>
+        <field name="component">header</field>
+        <field name="placeholder">1</field>
+        <field name="source">ask</field>
+        <field name="label">Order reference</field>
+    </record>
+    <record id="demo_template_order_param_body" model="rcs.whatsapp.template.param">
+        <field name="template_id" ref="demo_template_order"/>
+        <field name="component">body</field>
+        <field name="placeholder">1</field>
+        <field name="source">field</field>
+        <field name="field_path">name</field>
+    </record>
+
+    <record id="demo_template_followup" model="rcs.whatsapp.template">
+        <field name="number_id" ref="demo_number_support"/>
+        <field name="name">support_followup</field>
+        <field name="label">Support follow-up</field>
+        <field name="language">en_US</field>
+        <field name="category">utility</field>
+        <field name="status">approved</field>
+        <field name="meta_template_id">300000000000002</field>
+        <field name="body_text">Hi {{1}}, is everything sorted on your side? Reply here and we will pick it up.</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+    </record>
+    <record id="demo_template_followup_param" model="rcs.whatsapp.template.param">
+        <field name="template_id" ref="demo_template_followup"/>
+        <field name="component">body</field>
+        <field name="placeholder">1</field>
+        <field name="source">field</field>
+        <field name="field_path">name</field>
+    </record>
+
+    <record id="demo_conv_1" model="rcs.whatsapp.conversation">
+        <field name="number_id" ref="demo_number_support"/>
+        <field name="phone">14152001188</field>
+        <field name="partner_id" ref="base.res_partner_address_15"/>
+        <field name="profile_name">Brandon</field>
+        <field name="unread_count">0</field>
+        <field name="last_inbound_at" eval="(DateTime.now() - timedelta(hours=2)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="demo_msg_1_1" model="rcs.whatsapp.message">
+        <field name="conversation_id" ref="demo_conv_1"/>
+        <field name="direction">in</field>
+        <field name="kind">text</field>
+        <field name="body">The desk arrived with a scratch on the left side.</field>
+        <field name="wa_message_id">wamid.demo.1.1</field>
+        <field name="status">received</field>
+        <field name="read_at" eval="DateTime.now()"/>
+        <field name="date" eval="(DateTime.now() - timedelta(hours=2, minutes=10)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="demo_msg_1_2" model="rcs.whatsapp.message">
+        <field name="conversation_id" ref="demo_conv_1"/>
+        <field name="direction">out</field>
+        <field name="kind">text</field>
+        <field name="body">Sorry about that Brandon. We are sending a replacement panel today.</field>
+        <field name="wa_message_id">wamid.demo.1.2</field>
+        <field name="status">read</field>
+        <field name="author_user_id" ref="base.user_admin"/>
+        <field name="date" eval="(DateTime.now() - timedelta(hours=2, minutes=5)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="demo_msg_1_3" model="rcs.whatsapp.message">
+        <field name="conversation_id" ref="demo_conv_1"/>
+        <field name="direction">in</field>
+        <field name="kind">text</field>
+        <field name="body">Thanks, that works.</field>
+        <field name="wa_message_id">wamid.demo.1.3</field>
+        <field name="status">received</field>
+        <field name="read_at" eval="DateTime.now()"/>
+        <field name="date" eval="(DateTime.now() - timedelta(hours=2)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+
+    <record id="demo_conv_2" model="rcs.whatsapp.conversation">
+        <field name="number_id" ref="demo_number_sales"/>
+        <field name="phone">14152001188</field>
+        <field name="partner_id" ref="base.res_partner_address_15"/>
+        <field name="profile_name">Brandon</field>
+        <field name="last_inbound_at" eval="(DateTime.now() - timedelta(minutes=30)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="demo_msg_2_1" model="rcs.whatsapp.message">
+        <field name="conversation_id" ref="demo_conv_2"/>
+        <field name="direction">out</field>
+        <field name="kind">template</field>
+        <field name="template_id" ref="demo_template_order"/>
+        <field name="body">Order S00042
+
+Hello Brandon Freeman, thank you for your order. We will let you know as soon as it ships.
+
+Acme Sales</field>
+        <field name="wa_message_id">wamid.demo.2.1</field>
+        <field name="status">delivered</field>
+        <field name="author_user_id" ref="base.user_admin"/>
+        <field name="date" eval="(DateTime.now() - timedelta(hours=1)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="demo_msg_2_2" model="rcs.whatsapp.message">
+        <field name="conversation_id" ref="demo_conv_2"/>
+        <field name="direction">in</field>
+        <field name="kind">text</field>
+        <field name="body">Great, can you deliver on Friday?</field>
+        <field name="wa_message_id">wamid.demo.2.2</field>
+        <field name="status">received</field>
+        <field name="date" eval="(DateTime.now() - timedelta(minutes=30)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+
+    <record id="demo_conv_3" model="rcs.whatsapp.conversation">
+        <field name="number_id" ref="demo_number_sales"/>
+        <field name="phone">34612345678</field>
+        <field name="partner_id" ref="base.res_partner_address_16"/>
+        <field name="profile_name">Colleen</field>
+        <field name="last_inbound_at" eval="(DateTime.now() - timedelta(days=3)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+    <record id="demo_msg_3_1" model="rcs.whatsapp.message">
+        <field name="conversation_id" ref="demo_conv_3"/>
+        <field name="direction">in</field>
+        <field name="kind">text</field>
+        <field name="body">Do you have the blue one in stock?</field>
+        <field name="wa_message_id">wamid.demo.3.1</field>
+        <field name="status">received</field>
+        <field name="read_at" eval="DateTime.now()"/>
+        <field name="date" eval="(DateTime.now() - timedelta(days=3)).strftime('%Y-%m-%d %H:%M:%S')"/>
+    </record>
+
+</odoo>
