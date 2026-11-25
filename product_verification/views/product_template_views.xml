@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Ficha del producto (la ficha de variantes hereda de esta) -->
+    <record id="product_template_form_view_verification" model="ir.ui.view">
+        <field name="name">product.template.form.verification</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_verify_product" type="object"
+                        string="Dar visto bueno" class="btn-primary"
+                        groups="product_verification.group_product_verifier"
+                        invisible="verification_state == 'verified'"/>
+                <button name="action_reset_verification" type="object"
+                        string="Volver a pendiente"
+                        groups="product_verification.group_product_verifier"
+                        invisible="verification_state != 'verified'"
+                        confirm="El producto no se podrá usar en compras ni ventas hasta un nuevo visto bueno. ¿Continuar?"/>
+                <field name="verification_state" widget="statusbar"/>
+            </xpath>
+            <xpath expr="//sheet" position="before">
+                <div class="alert alert-warning mb-0 text-center" role="alert"
+                     invisible="verification_state == 'verified' or not id">
+                    Producto <strong>pendiente de verificación</strong>: no se puede
+                    usar en compras ni en órdenes de venta hasta que un Verificador
+                    de productos le dé el visto bueno.
+                </div>
+            </xpath>
+            <xpath expr="//page[@name='general_information']//group[@name='group_general']" position="inside">
+                <field name="verified_by_id" invisible="verification_state != 'verified'"/>
+                <field name="verified_date" invisible="verification_state != 'verified'"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Listas -->
+    <record id="product_template_tree_view_verification" model="ir.ui.view">
+        <field name="name">product.template.list.verification</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_verify_product" type="object" string="Dar visto bueno"
+                        groups="product_verification.group_product_verifier"/>
+            </xpath>
+            <field name="default_code" position="after">
+                <field name="verification_state" widget="badge" optional="show"
+                       decoration-success="verification_state == 'verified'"
+                       decoration-warning="verification_state == 'pending'"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="product_product_tree_view_verification" model="ir.ui.view">
+        <field name="name">product.product.list.verification</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_product_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_verify_product" type="object" string="Dar visto bueno"
+                        groups="product_verification.group_product_verifier"/>
+            </xpath>
+            <field name="default_code" position="after">
+                <field name="verification_state" widget="badge" optional="show"
+                       decoration-success="verification_state == 'verified'"
+                       decoration-warning="verification_state == 'pending'"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Búsqueda (la de variantes hereda de esta) -->
+    <record id="product_template_search_view_verification" model="ir.ui.view">
+        <field name="name">product.template.search.verification</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+            <filter name="filter_to_purchase" position="after">
+                <separator/>
+                <filter string="Pendientes de verificación" name="verification_pending"
+                        domain="[('verification_state', '=', 'pending')]"/>
+                <filter string="Verificados" name="verification_verified"
+                        domain="[('verification_state', '=', 'verified')]"/>
+            </filter>
+        </field>
+    </record>
+</odoo>

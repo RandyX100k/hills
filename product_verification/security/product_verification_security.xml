@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_category_product_verification" model="ir.module.category">
+        <field name="name">Verificación de productos</field>
+        <field name="sequence">60</field>
+    </record>
+
+    <record id="group_product_verifier" model="res.groups">
+        <field name="name">Verificador de productos</field>
+        <field name="category_id" ref="module_category_product_verification"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        <field name="comment">Puede dar el visto bueno a los productos nuevos para que se usen en compras y ventas.</field>
+    </record>
+</odoo>
