@@ -2,8 +2,8 @@
 {
     'name': "Compras - Recepción con visto bueno actualiza el costo",
 
-    'summary': "Quien recibe una compra con visto bueno puede validarla aunque "
-               "no sea Price Manager (Product Price Lock Pro).",
+    'summary': "Quien recibe o factura una compra con visto bueno puede "
+               "validarla aunque no sea Price Manager (Product Price Lock Pro).",
 
     'description': """
 Product Price Lock Pro (odnt_price_access_control) bloquea cualquier cambio de
@@ -14,7 +14,10 @@ product prices".
 
 Este módulo deja pasar únicamente esa actualización automática del costo
 (standard_price) cuando la recepción viene de una compra con el visto bueno
-dado (purchase_receipt_approval). El precio de venta y cualquier edición
+dado (purchase_receipt_approval). Lo mismo al confirmar la factura del
+proveedor: si sale a un precio distinto al de la compra, Odoo reajusta el
+costo promedio, y eso también se permite cuando todas las compras de la
+factura tienen el visto bueno. El precio de venta y cualquier edición
 manual del costo siguen bloqueados para quien no sea Price Manager.
     """,
 
@@ -22,7 +25,7 @@ manual del costo siguen bloqueados para quien no sea Price Manager.
     'website': "https://www.rutiversotech.com",
 
     'category': 'Inventory/Purchase',
-    'version': '18.0.1.0.0',
+    'version': '18.0.1.1.0',
     'license': 'LGPL-3',
 
     'depends': ['stock_account', 'purchase_receipt_approval', 'odnt_price_access_control'],

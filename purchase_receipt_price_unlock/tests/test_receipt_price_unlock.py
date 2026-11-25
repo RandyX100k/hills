@@ -13,7 +13,7 @@ class TestReceiptPriceUnlock(TransactionCase):
         cls.env.user.groups_id += cls.env.ref('odnt_price_access_control.odnt_group_price_manager')
         cls.user = new_test_user(
             cls.env, login='rpu_buyer',
-            groups='purchase.group_purchase_user,stock.group_stock_user',
+            groups='purchase.group_purchase_user,stock.group_stock_user,account.group_account_invoice',
         )
         cls.manager = new_test_user(
             cls.env, login='rpu_manager',
@@ -62,3 +62,31 @@ class TestReceiptPriceUnlock(TransactionCase):
     def test_receipt_without_approval_keeps_lock(self):
         with self.assertRaises(AccessError):
             self._receive(approval=False)
+
+    def _bill(self, picking, price):
+        po = picking.purchase_id
+        po.with_user(self.manager).action_create_invoice()
+        bill = po.invoice_ids.with_user(self.user)
+        bill.invoice_date = '2026-11-25'
+        bill.invoice_line_ids.price_unit = price
+        bill.action_post()
+        return bill
+
+    def test_approved_bill_with_other_price_updates_cost(self):
+        picking = self._receive(approval=True)
+        bill = self._bill(picking, 200)
+        self.assertEqual(bill.state, 'posted')
+        self.assertEqual(self.product.standard_price, 200)
+
+    def test_bill_without_approval_keeps_lock(self):
+        # Sin visto bueno: un Price Manager recibe, el usuario normal factura a otro precio.
+        self.env.company.purchase_approval_email_to = False
+        po = self.env['purchase.order'].create({
+            'partner_id': self.partner.id,
+            'order_line': [(0, 0, {'product_id': self.product.id, 'product_qty': 2, 'price_unit': 150})],
+        })
+        po.button_confirm()
+        po.picking_ids.move_ids.quantity = 2
+        po.picking_ids.button_validate()
+        with self.assertRaises(AccessError):
+            self._bill(po.picking_ids, 200)
