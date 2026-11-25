@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Producto nuevo (sin guardar, id vacío): se puede poner el precio y el
+         costo iniciales. Ya guardado vuelve el candado de Odonity. -->
+    <record id="product_template_form_view_price_on_create" model="ir.ui.view">
+        <field name="name">product.template.form.price.on.create</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="odnt_price_access_control.odnt_view_product_template_form_price"/>
+        <field name="priority">30</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='list_price']" position="attributes">
+                <attribute name="readonly">not odnt_price_editable and id</attribute>
+            </xpath>
+            <xpath expr="//field[@name='standard_price']" position="attributes">
+                <attribute name="readonly">not odnt_price_editable and id</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_product_form_view_price_on_create" model="ir.ui.view">
+        <field name="name">product.product.form.price.on.create</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="odnt_price_access_control.odnt_view_product_product_form_price"/>
+        <field name="priority">30</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='lst_price']" position="attributes">
+                <attribute name="readonly">not odnt_price_editable and id</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

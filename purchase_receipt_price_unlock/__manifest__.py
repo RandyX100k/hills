@@ -25,7 +25,7 @@ manual del costo siguen bloqueados para quien no sea Price Manager.
     'website': "https://www.rutiversotech.com",
 
     'category': 'Inventory/Purchase',
-    'version': '18.0.1.1.0',
+    'version': '18.0.1.2.0',
     'license': 'LGPL-3',
 
     'depends': ['stock_account', 'purchase_receipt_approval', 'odnt_price_access_control'],
